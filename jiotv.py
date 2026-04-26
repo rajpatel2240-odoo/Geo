@@ -95,6 +95,7 @@ def generate_m3u_from_url(jio_url, meta_file, output_file):
             extinf = f'#EXTINF:-1 tvg-id="{channel_id}" tvg-logo="{logo}" group-title="{group}",{name}\n'
             
             drm_props = (
+                '#EXTVLCOPT:http-referrer=https://www.jiotv.com/\n'
                 '#KODIPROP:inputstream=inputstream.adaptive\n'
                 '#KODIPROP:inputstream.adaptive.manifest_type=mpd\n'
                 '#KODIPROP:inputstream.adaptive.license_type=clearkey\n'
