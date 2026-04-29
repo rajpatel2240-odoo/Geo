@@ -6886,5 +6886,11 @@
         "group-title": "Entertainment",
         "tvg-logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png",
         "channel-name": "Zee Tamil HD"
+    },
+    {
+        "tvg-id": "853",
+        "group-title": "Infortainment",
+        "tvg-logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Sony_BBC_Earth_HD.png",
+        "channel-name": "Sony BBC Earth"
     }
 ]
