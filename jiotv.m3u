@@ -4303,7 +4303,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/ZeeTV_MOB/WDVLive/index.mpd?__hdnea__=st=
 #KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=1354
 https://jiotvmblive.cdn.jio.com/bpk-tv/ZeeTeluguHD_MOB/WDVLive/index.mpd?__hdnea__=st=1777455014~exp=1777476614~acl=/*~hmac=4a43294890f63a0dfe1262f41a62c367d8c615e6db85959d44e1ac93d8353647
 
-#EXTINF:-1 tvg-id="1356" tvg-logo="" group-title="Unknown",ZeeTamilHD
+#EXTINF:-1 tvg-id="1356" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png" group-title="Entertainment",Zee Tamil HD
 #EXTVLCOPT:http-referrer=https://www.jiotv.com/
 #EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/69.1 ExoPlayerLib/824.0
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
