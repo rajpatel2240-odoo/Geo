@@ -6880,5 +6880,11 @@
         "group-title": "Movies",
         "tvg-logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Zee_Thirai_HD.png",
         "channel-name": "Zee Thirai HD"
+    },
+    {
+        "tvg-id": "1356",
+        "group-title": "Entertainment",
+        "tvg-logo": "https://jiotv.catchup.cdn.jio.com/dare_images/images/Zee_Tamil_HD.png",
+        "channel-name": "Zee Tamil HD"
     }
 ]
