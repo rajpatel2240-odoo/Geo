@@ -95,9 +95,7 @@ def generate_m3u_from_url(jio_url, meta_file, output_file):
             extinf = f'#EXTINF:-1 tvg-id="{channel_id}" tvg-logo="{logo}" group-title="{group}",{name}\n'
             
             drm_props = (
-                '#EXTVLCOPT:http-referrer=https://www.jiotv.com/\n'
-                '#EXTVLCOPT:http-user-agent=plaYtv/7.1.3 (Linux;Android 13) ygx/69.1 ExoPlayerLib/824.0\n'
-                '#KODIPROP:inputstream.adaptive.manifest_type=mpd\n'
+                '#EXTVLCOPT:http-user-agent=@cloudplay\n'
                 '#KODIPROP:inputstream.adaptive.license_type=clearkey\n'
                 f'#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id={channel_id}\n'
             )
