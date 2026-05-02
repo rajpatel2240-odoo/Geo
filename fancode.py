@@ -43,7 +43,7 @@ def generate_fancode_m3u():
             added += 1
             print(f"  [LIVE] {channel_name}")
 
-        output_file = "fancode.m3u"
+        output_file = "fancode_1080p.m3u"
         with open(output_file, "w", encoding="utf-8") as f:
             f.write(m3u_content)
 
