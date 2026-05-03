@@ -29,10 +29,17 @@ jobs:
       # 4. Commit and push the new playlist.m3u back to the repo
       # 4. Commit and push the new playlist back to the repo
       # 4. Commit and push the new playlist back to the repo
-      - name: Commit and Push Changes
+      - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add jiotv.m3u
-          git commit -m "Automated update: Refresh Jio M3U playlist" || echo "No changes to commit"
-          git push
+          git diff --cached --quiet && echo "No changes to commit" && exit 0
+          git commit -m "Automated update: Refresh Jio M3U playlist"
+          for i in 1 2 3; do
+            git pull --rebase origin main && git push origin main && break
+            echo "Push failed, retrying ($i)..."
+            sleep 5
+          done
+          echo "All retries failed."
+          exit 1
