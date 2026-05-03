@@ -102,7 +102,8 @@ def generate_m3u_from_url(jio_url, meta_file, output_file):
             
             out.write(extinf)
             out.write(drm_props)
-            out.write(url + "\n\n")
+            out.write(url + "|drmScheme=clearkey")
+            out.write("\n\n")
             
     print(f"Success! M3U playlist generated as '{output_file}'.")
 
