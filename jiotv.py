@@ -1,46 +1,14 @@
 import json
 import os
 import urllib.request
-from urllib.parse import urlparse
 
 def clean_url(url):
-    """Converts '...index.mpd|cookie=__hdnea__' to '...index.mpd?__hdnea__'"""
-    if '|cookie=' in url:
-        base, cookie_value = url.split('|cookie=', 1)
-        return f"{base}?{cookie_value}"
+    """Converts '...index.mpd|drmScheme=clearkey' — strips that suffix for the base MPD URL."""
+    if '|drmScheme=' in url:
+        return url.split('|drmScheme=')[0]
     return url
 
-def extract_name_from_url(url):
-    """Extracts, cleans, and formats the channel name from the stream URL."""
-    def clean_name(raw_name):
-        name = raw_name.replace("_MOB", "").replace("_", " ")
-        if name.endswith(" MOB"):
-            name = name[:-4]
-        return name.strip()
-
-    try:
-        path = urlparse(url).path
-        parts = [p for p in path.split('/') if p] 
-        
-        if 'WDVLive' in parts:
-            idx = parts.index('WDVLive')
-            if idx > 0:
-                return clean_name(parts[idx - 1])
-                
-        if 'bpk-tv' in parts:
-            idx = parts.index('bpk-tv')
-            if idx + 1 < len(parts):
-                return clean_name(parts[idx + 1])
-                
-        if len(parts) >= 2:
-            return clean_name(parts[-2])
-            
-    except Exception:
-        pass
-        
-    return "Unknown Channel"
-
-def generate_m3u_from_url(jio_url, meta_file, output_file):
+def generate_m3u_from_url(jio_url, output_file):
     print(f"Fetching stream data from {jio_url}...")
     try:
         req = urllib.request.Request(jio_url, headers={'User-Agent': 'Mozilla/5.0'})
@@ -54,62 +22,55 @@ def generate_m3u_from_url(jio_url, meta_file, output_file):
         print(f"Error fetching or parsing the URL data: {e}")
         return
 
-    if not os.path.exists(meta_file):
-        print(f"Error: Make sure {meta_file} is in the same directory.")
+    # Support both a list of channel objects or a dict keyed by channel id
+    if isinstance(jio_data, dict):
+        channels = list(jio_data.values())
+    elif isinstance(jio_data, list):
+        channels = jio_data
+    else:
+        print("Unexpected JSON structure.")
         return
-        
-    with open(meta_file, 'r', encoding='utf-8') as f:
-        try:
-            meta_data = json.load(f)
-        except json.JSONDecodeError:
-            print(f"Error parsing {meta_file}. Ensure it is valid JSON.")
-            return
-            
-    meta_dict = {str(item.get("tvg-id")): item for item in meta_data}
-    
+
     with open(output_file, 'w', encoding='utf-8') as out:
         out.write("#EXTM3U\n")
-        
-        for channel_id, stream_info in jio_data.items():
-            raw_url = stream_info.get("url", "")
-            
-            if not raw_url:
+
+        for channel in channels:
+            channel_id = str(channel.get("id", ""))
+            mpd_url = channel.get("mpd_url", "")
+            license_url = channel.get("license_url", "")
+
+            if not mpd_url:
                 continue
 
-            url = clean_url(raw_url)  # <-- Clean the URL here
-                
-            meta_info = meta_dict.get(str(channel_id), {})
-            
-            if not meta_info:
-                name = extract_name_from_url(url)
-                logo = ""
-                group = "Unknown"
-            else:
-                name = meta_info.get("channel-name")
-                if not name:
-                    name = extract_name_from_url(url)
-                    
-                logo = meta_info.get("tvg-logo", "")
-                group = meta_info.get("group-title", "Unknown")
-                
-            extinf = f'#EXTINF:-1 tvg-id="{channel_id}" tvg-logo="{logo}" group-title="{group}",{name}\n'
-            
-            drm_props = (
-                '#EXTVLCOPT:http-user-agent=@cloudplay\n'
-                '#KODIPROP:inputstream.adaptive.license_type=clearkey\n'
-                f'#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id={channel_id}\n'
+            base_url = clean_url(mpd_url)
+
+            name = channel.get("name", "Unknown Channel")
+            logo = channel.get("logo", "")
+            group = channel.get("group", "Unknown")
+            user_agent = channel.get("user_agent", "@cloudplay")
+
+            extinf = (
+                f'#EXTINF:-1 tvg-id="{channel_id}" '
+                f'tvg-logo="{logo}" '
+                f'group-title="{group}",'
+                f'{name}\n'
             )
-            
+
+            drm_props = (
+                f'#EXTVLCOPT:http-user-agent={user_agent}\n'
+                '#KODIPROP:inputstream.adaptive.license_type=clearkey\n'
+                f'#KODIPROP:inputstream.adaptive.license_key={license_url}\n'
+            )
+
             out.write(extinf)
             out.write(drm_props)
-            out.write(url + "|drmScheme=clearkey")
+            out.write(base_url + "|drmScheme=clearkey")
             out.write("\n\n")
-            
+
     print(f"Success! M3U playlist generated as '{output_file}'.")
 
 if __name__ == "__main__":
-    JIO_URL = "https://raw.githubusercontent.com/Anasvirat18/Jio_/refs/heads/main/stream.json"
-    META_FILENAME = "meta.txt"
+    JIO_URL = "https://noisy-truth-6766.streamstar18.workers.dev/"
     OUTPUT_FILENAME = "jiotv.m3u"
-    
-    generate_m3u_from_url(JIO_URL, META_FILENAME, OUTPUT_FILENAME)
+
+    generate_m3u_from_url(JIO_URL, OUTPUT_FILENAME)
