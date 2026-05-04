@@ -57,7 +57,7 @@ def generate_m3u_from_url(jio_url, output_file):
             )
 
             drm_props = (
-                f'#EXTVLCOPT:http-user-agent={user_agent}\n'
+                f'#EXTVLCOPT:http-user-agent=Wheregoes.com Redirect Checker/1.0\n'
                 '#KODIPROP:inputstream.adaptive.license_type=clearkey\n'
                 f'#KODIPROP:inputstream.adaptive.license_key={license_url}\n'
             )
