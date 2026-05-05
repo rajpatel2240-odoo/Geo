@@ -1,4 +1,4 @@
-name: Hourly M3U Playlist Update
+name: Cricket M3U Playlist Update
 
 # Trigger the workflow every hour and allow manual runs
 on:
