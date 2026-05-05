@@ -1,0 +1,42 @@
+name: Hourly M3U Playlist Update
+
+# Trigger the workflow every hour and allow manual runs
+on:
+  schedule:
+    - cron: '0 * * * *' # Runs at minute 0 of every hour
+  workflow_dispatch:    # Allows you to trigger it manually from the Actions tab
+
+# Set permissions to allow the action to push changes back to the repo
+permissions:
+  contents: write
+
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository code
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Set up the Python environment
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. Run the script to fetch and clean the M3U
+      # (Make sure to replace 'script.py' with the actual name of your Python file)
+      - name: Run Python script
+        run: python script.py
+
+      # 4. Commit and push the generated M3U file back to the repository
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add Cricket.m3u
+          
+          # Only commit if there are actual changes to prevent workflow errors
+          git commit -m "Automated update: Cleaned Cricket.m3u" || echo "No changes to commit"
+          git push
