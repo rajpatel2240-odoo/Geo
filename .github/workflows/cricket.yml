@@ -26,9 +26,9 @@ jobs:
           python-version: '3.10'
 
       # 3. Run the script to fetch and clean the M3U
-      # (Make sure to replace 'script.py' with the actual name of your Python file)
+
       - name: Run Python script
-        run: python script.py
+        run: python cricket.py
 
       # 4. Commit and push the generated M3U file back to the repository
       - name: Commit and push changes
