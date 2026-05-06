@@ -6,7 +6,11 @@ def fetch_and_clean_m3u(url, output_filename):
     with urllib.request.urlopen(req) as response:
         content = response.read().decode('utf-8')
     
+    # Remove script tags
     cleaned_content = re.sub(r'<script[\s\S]*?</script>\n*', '', content)
+    
+    # Replace |cookie= with ? in channel URLs
+    cleaned_content = re.sub(r'\|cookie=', '?', cleaned_content)
     
     with open(output_filename, 'w', encoding='utf-8') as file:
         file.write(cleaned_content.strip())
