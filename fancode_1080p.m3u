@@ -1,4 +1,10 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 05:04:26 AM 07-05-2026
+# Last Updated: 06:45:51 AM 07-05-2026
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CHK-Womens-T20_fc-web.jpg" group-title="Fancode",Cricket | Malaysia Women vs China Women (CHK Women's T20I Series 2026)
+https://in-mc-fblive.fancode.com/mumbai/142295_english_hls_ac06c2edfc93952_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142157_5954_TOL_LAF_FC-Web.png" group-title="Fancode",Football | Toluca vs Los Angeles FC (CONCACAF Champions Cup 2026)
+https://in-mc-fblive.fancode.com/mumbai/142159_english_hls_c8137e3a8a9433_1ta-di_h264/index.m3u8
 
