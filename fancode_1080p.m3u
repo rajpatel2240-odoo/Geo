@@ -1,4 +1,7 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 10:18:51 AM 07-05-2026
+# Last Updated: 01:01:24 PM 07-05-2026
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/CHK-Womens-T20_fc-web.jpg" group-title="Fancode",Cricket | Hong Kong, China Women vs Malaysia Women (CHK Women's T20I Series 2026)
+https://in-mc-fblive.fancode.com/mumbai/142296_english_hls_a3e54d102022059_1ta-di_h264/index.m3u8
 
