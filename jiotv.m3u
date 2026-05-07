@@ -1540,7 +1540,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/DY_365_MOB/WDVLive/index.mpd?__hdnea__=st
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"RC75vR8XXYGtTvbiA5Yh-w","k":"W65jrsXEBLPyUHO88fC6mA"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=634
 https://jiotvmblive.cdn.jio.com/bpk-tv/Flower_TV_MOB/WDVLive/index.mpd?__hdnea__=st=1778145964~exp=1778167564~acl=/*~hmac=be27688c31a5dcbc31a94fe1a6bdb483c84dbbb477e7ff1c80e4b464ca5ff03b|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="636" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Polimer_News.png" group-title="Tamil",Polimer News
