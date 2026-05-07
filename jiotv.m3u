@@ -1708,7 +1708,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/Zee_Rajasthan_MOB/WDVLive/index.mpd?__hdn
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"nQnqWdrLXtezOY0N7b0VCw","k":"oxpyyEDVmgruP2RlWQSuEA"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=661
 https://jiotvmblive.cdn.jio.com/bpk-tv/Zee_Purvaiya_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="662" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Manorama_News.png" group-title="Malayalam",Manorama News
@@ -2596,7 +2596,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/Janam_TV_MOB/WDVLive/index.mpd?__hdnea__=
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"z2ztY-OYVxK_rAfQnyHy1g","k":"cD56txEgfHVjVe32w42WzA"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=814
 https://jiotvmblive.cdn.jio.com/bpk-tv/Travel_XP_Tamil_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="815" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/sonic_Hindi.png" group-title="Kids",Sonic Hindi
@@ -3668,7 +3668,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/Vande_Gujarat_13_MOB/WDVLive/index.mpd?__
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"WLEKinkPVKCe2d9hnDQj4Q","k":"aeeaRGcLvxa3OCBACD5b1Q"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=1092
 https://jiotvmblive.cdn.jio.com/bpk-tv/Vande_Gujarat_14_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="1093" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Vande_Gujarat_15.png" group-title="Gujarati",Vande Gujarat 15
@@ -4652,7 +4652,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/BBC_Hindi_MOB/WDVLive/index.mpd?__hdnea__
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"1rtmWC5iWgSldTZ4B2TduA","k":"hca_UaVPoqy9tSEkJU4pqg"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=1432
 https://jiotvmblive.cdn.jio.com/bpk-tv/TIME8_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="1433" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/India_Science.png" group-title="English",India Science
@@ -4668,7 +4668,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/India_Science_MOB/WDVLive/index.mpd?__hdn
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"RIC9vsGwX1u28iJ9QoTwRQ","k":"Ah_3MedC9LMKVDI-rcVSqw"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=1450
 https://jiotvmblive.cdn.jio.com/bpk-tv/ColorsCineplexSuperhit_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="1452" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Shemaroo_MarathiBana.png" group-title="Marathi",Shemaroo MarathiBana
@@ -5852,7 +5852,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/3_0_TV_MOB/WDVLive/index.mpd?__hdnea__=st
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"NzE7gefYXpOc_1LzppG3ug","k":"eI9yZST_Rfu9M3bI04cYsA"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=2004
 https://jiotvmblive.cdn.jio.com/bpk-tv/Shekinah_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="2005" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/in24news.png" group-title="News",IN 24 News
@@ -6980,7 +6980,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/Bharat_Nation_MOB/WDVLive/index.mpd?__hdn
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"jKXB9DGOX9irGIVWEc1_jQ","k":"LLDhd_AgeQqzvH1fRWuvXg"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=3066
 https://jiotvmblive.cdn.jio.com/bpk-tv/Today_TV24_UPUK_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="3068" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Bharat_Update.png" group-title="News",Bharat Update
@@ -7116,7 +7116,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Gold_Thrills_MOB/WDVLive/index.mpd?_
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"","k":""}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=3099
 https://jiotvmblive.cdn.jio.com/bpk-tv/Star_Pravah_Picture_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="3100" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/Star_Pravah_Picture_HD.png" group-title="Marathi",Star Pravah Picture HD
@@ -7316,7 +7316,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/DD_SWAYAM_PRABHA_35_MOB/WDVLive/index.mpd
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"LPEeBJblVdW81dIdcy7FAg","k":"Fou4Gf9EfyMklouH9kEaOw"}],"type":"temporary"}
+#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/key.php?id=3131
 https://jiotvmblive.cdn.jio.com/bpk-tv/DD_SWAYAM_PRABHA_36_MOB/WDVLive/index.mpd?__hdnea__=st=1778178612~exp=1778200212~acl=/*~hmac=7fab3c88da3abde106e783f89cb9fc413a12899e9b7dfcef3a3db9712a35ad0d|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="3132" tvg-logo="https://jiotvimages.cdn.jio.com/dare_images/images/DD_SWAYAM_PRABHA_37.png" group-title="English",DD Swayam Prabha 37
