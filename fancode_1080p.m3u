@@ -1,6 +1,6 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 09:23:34 PM 10-05-2026
+# Last Updated: 10:26:33 PM 10-05-2026
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg" group-title="Fancode",Cricket | Guyana Harpy Eagles vs West Indies Academy (West Indies Championship 2026)
 https://in-mc-fblive.fancode.com/mumbai/141957_english_hls_416027e7cb20268_1ta-di_h264/index.m3u8
@@ -8,17 +8,23 @@ https://in-mc-fblive.fancode.com/mumbai/141957_english_hls_416027e7cb20268_1ta-d
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg" group-title="Fancode",Cricket | Trinidad & Tobago Red Force vs Barbados Pride (West Indies Championship 2026)
 https://in-mc-fblive.fancode.com/mumbai/141956_english_hls_d853788a8667708_1ta-di_h264/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/140513_5956_NEUFC_CFC_FC-Web_1772475527378.jpg" group-title="Fancode",Football | NorthEast United FC vs Chennaiyin FC (ISL 2025-26)
-https://in-mc-fblive.fancode.com/mumbai/140513_english_hls_80de7c86eb42596_1ta-di_h264/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131171_5427_ATH_VAL_FC-Web.png" group-title="Fancode",Football | Athletic Club vs Valencia CF (LALIGA 2025-26)
-https://in-mc-fblive.fancode.com/mumbai/131171_english_hls_d4f535db2676238_1ta-di_h264/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131179_5427_RO_GEF_FC-Web.png" group-title="Fancode",Football | Real Oviedo vs Getafe CF (LALIGA 2025-26)
+https://in-mc-fblive.fancode.com/mumbai/131179_english_hls_7aa361674a19026_1ta-di_h264/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142545_6062_VIE_KOR_FC-WEB.jpg" group-title="Fancode",Football | Vietnam vs Korea Republic (AFC U17 Asian Cup Saudi Arabia 2026)
 https://in-mc-fblive.fancode.com/mumbai/142545_english_hls_af9594f87481048_1ta-di_h264/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://images.fancode.com/aig/match/v1778387127054/142493_CASACARDS_APP.png" group-title="Fancode",Football | Grimsby Town vs Salford City (League Two 2025-26)
-https://in-mc-fblive.fancode.com/mumbai/142493_english_hls_1b272ad561391_1ta-di_h264/index.m3u8
+#EXTINF:-1 tvg-logo="https://images.fancode.com/aig/match/v1778266487038/142378_CASACARDS_APP.png" group-title="Fancode",Football | Córdoba vs Granada (LALIGA Hypermotion 2025-26)
+https://in-mc-fblive.fancode.com/mumbai/142378_english_hls_5bfe6179d938084_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142546_6062_UAE_YMN_FC-WEB.jpg" group-title="Fancode",Football | United Arab Emirates vs Yemen (AFC U17 Asian Cup Saudi Arabia 2026)
+https://in-mc-fblive.fancode.com/mumbai/142546_english_hls_9c2611ca4b66809_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142547_6062_IND_UZB_FC-WEB.jpg" group-title="Fancode",Football | India vs Uzbekistan (AFC U17 Asian Cup Saudi Arabia 2026)
+https://in-mc-fblive.fancode.com/mumbai/142547_english_hls_fbc911290b33227_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://images.fancode.com/aig/match/v1778387127055/142494_CASACARDS_APP.png" group-title="Fancode",Football | Chesterfield vs Notts County (League Two 2025-26)
+https://in-mc-fblive.fancode.com/mumbai/142494_english_hls_6482ac41a570912_1ta-di_h264/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Internazionali-BNL-d'Italia_fc-web.jpg" group-title="Fancode",Tennis | Day 5 - Main Feed vs Rome (ATP Masters Internazionali BNL d'Italia 2026)
 https://in-mc-fblive.fancode.com/mumbai/142226_english_hls_1107196c7429776_1ta-di_h264/index.m3u8
@@ -40,4 +46,7 @@ https://in-mc-fblive.fancode.com/mumbai/142105_english_hls_63b237ec8295516_1ta-d
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Internazionali-BNL-d'Italia_fc-web.jpg" group-title="Fancode",Tennis | T. Paul vs L. Darderi vs Rome (ATP Masters Internazionali BNL d'Italia 2026)
 https://in-mc-fblive.fancode.com/mumbai/142623_english_hls_3c66f1332159384_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Truist-Championship--2026_Web_1080_x_810.jpg" group-title="Fancode",Golf | World Feed - Day 4 vs Quail Hollow Club - Charlotte, North Carolina (Truist Championship 2026)
+https://in-mc-fblive.fancode.com/mumbai/142103_english_hls_1e46e68b6223786_1ta-di_h264/index.m3u8
 
