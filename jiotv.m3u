@@ -44,7 +44,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Bharat_BTS/WDVLive/index.mpd|drmSche
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/plkey.php?id=291
+#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"69N-k2hnWWqGjMCFBw5M1Q","k":"9cWOa_Ci3rAY_oepNKah0A"}],"type":"temporary"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Sony_HD_BTS/WDVLive/index.mpd|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="472" tvg-logo="http://jiotv.catchup.cdn.jio.com/dare_images/images/AndTVHD.png" group-title="Entertainment",And TV HD
@@ -1276,7 +1276,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/SonyMarathi_BTS/WDVLive/index.mpd|drmSche
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/plkey.php?id=414
+#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"-iry_rM5WnuLkxvXcmg4MQ","k":"QR5-yxdJIf-XzAFiwjcsaQ"}],"type":"temporary"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/ZeeYuva_BTS/WDVLive/index.mpd|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="1358" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/ZeeTalkiesHD.png" group-title="Marathi",Zee Talkies HD
@@ -2132,7 +2132,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Brio_TV_BTS/WDVLive/index.mpd|drmScheme=c
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/plkey.php?id=803
+#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"sMI3o3TNV7uAr-7Bb2q2gA","k":"CNq59yQtvZXx5JSpb2_a2A"}],"type":"temporary"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Tunes_6_BTS/WDVLive/index.mpd|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="1518" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Moon_Tv.png" group-title="Tamil",Moon TV
@@ -5852,7 +5852,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Food_XP_BTS/WDVLive/index.mpd|drmScheme=c
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/plkey.php?id=1598
+#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"JfG_tM-iWgewkwYU_ORY1g","k":"hCXkHEra7M5CD6i6EU7IhQ"}],"type":"temporary"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/FTV_HD_BTS/WDVLive/index.mpd|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="560" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/NDTV_Good_Times.png" group-title="Lifestyle",GOOD TiMES
@@ -6316,7 +6316,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/B4U_Bhojpuri_BTS/WDVLive/index.mpd|drmSch
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay
-#KODIPROP:inputstream.adaptive.license_key=https://temp.webplay.fun/jtv/plkey.php?id=3281
+#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"9xHCMRpWUKWcZ5O3iUZkfw","k":"78vNxTl4CwfQY8FaDygatg"}],"type":"temporary"}
 https://jiotvpllive.cdn.jio.com/bpk-tv/Mahua_Play_BTS/WDVLive/index.mpd|drmScheme=clearkey
 
 #EXTINF:-1 tvg-id="1925" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/MH1_DilSe.png" group-title="Bhojpuri",MH1 Dil Se
