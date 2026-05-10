@@ -1,15 +1,12 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 07:31:53 PM 10-05-2026
+# Last Updated: 08:42:52 PM 10-05-2026
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg" group-title="Fancode",Cricket | Guyana Harpy Eagles vs West Indies Academy (West Indies Championship 2026)
 https://in-mc-fblive.fancode.com/mumbai/141957_english_hls_416027e7cb20268_1ta-di_h264/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg" group-title="Fancode",Cricket | Trinidad & Tobago Red Force vs Barbados Pride (West Indies Championship 2026)
 https://in-mc-fblive.fancode.com/mumbai/141956_english_hls_d853788a8667708_1ta-di_h264/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131175_5427_MRC_VIL_FC-Web.png" group-title="Fancode",Football | RCD Mallorca vs Villarreal CF (LALIGA 2025-26)
-https://in-mc-fblive.fancode.com/mumbai/131175_english_hls_827ea2f5c399182_1ta-di_h264/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/140513_5956_NEUFC_CFC_FC-Web_1772475527378.jpg" group-title="Fancode",Football | NorthEast United FC vs Chennaiyin FC (ISL 2025-26)
 https://in-mc-fblive.fancode.com/mumbai/140513_english_hls_80de7c86eb42596_1ta-di_h264/index.m3u8
@@ -37,4 +34,7 @@ https://in-mc-fblive.fancode.com/mumbai/142106_english_hls_c04852fe7915293_1ta-d
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Truist-Championship--2026_Web_1080_x_810.jpg" group-title="Fancode",Golf | Marquee Group - Day 4 vs Quail Hollow Club - Charlotte, North Carolina (Truist Championship 2026)
 https://in-mc-fblive.fancode.com/mumbai/142105_english_hls_63b237ec8295516_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Internazionali-BNL-d'Italia_fc-web.jpg" group-title="Fancode",Tennis | T. Paul vs L. Darderi vs Rome (ATP Masters Internazionali BNL d'Italia 2026)
+https://in-mc-fblive.fancode.com/mumbai/142623_english_hls_3c66f1332159384_1ta-di_h264/index.m3u8
 
