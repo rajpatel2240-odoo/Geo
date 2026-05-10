@@ -1,6 +1,6 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 08:42:52 PM 10-05-2026
+# Last Updated: 09:23:34 PM 10-05-2026
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg" group-title="Fancode",Cricket | Guyana Harpy Eagles vs West Indies Academy (West Indies Championship 2026)
 https://in-mc-fblive.fancode.com/mumbai/141957_english_hls_416027e7cb20268_1ta-di_h264/index.m3u8
@@ -13,6 +13,9 @@ https://in-mc-fblive.fancode.com/mumbai/140513_english_hls_80de7c86eb42596_1ta-d
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131171_5427_ATH_VAL_FC-Web.png" group-title="Fancode",Football | Athletic Club vs Valencia CF (LALIGA 2025-26)
 https://in-mc-fblive.fancode.com/mumbai/131171_english_hls_d4f535db2676238_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142545_6062_VIE_KOR_FC-WEB.jpg" group-title="Fancode",Football | Vietnam vs Korea Republic (AFC U17 Asian Cup Saudi Arabia 2026)
+https://in-mc-fblive.fancode.com/mumbai/142545_english_hls_af9594f87481048_1ta-di_h264/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://images.fancode.com/aig/match/v1778387127054/142493_CASACARDS_APP.png" group-title="Fancode",Football | Grimsby Town vs Salford City (League Two 2025-26)
 https://in-mc-fblive.fancode.com/mumbai/142493_english_hls_1b272ad561391_1ta-di_h264/index.m3u8
