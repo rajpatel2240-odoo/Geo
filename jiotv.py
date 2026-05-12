@@ -1,152 +1,101 @@
+import requests
 import json
-import time
-from concurrent.futures import ThreadPoolExecutor, as_completed
 
-try:
-    import requests
-except ImportError:
-    import subprocess, sys
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "requests", "-q"])
-    import requests
+# --- Source URLs ---
+CHANNELS_URL = "https://allinonereborn.online/jtv-fetch/jstr4web.json"
+COOKIE_URL   = "https://allinonereborn.online/jstrweb2/cookies.json"
+STATUS_URL   = "https://allinonereborn.online/jtv-fetch/jstarcookie/cookie.json"
 
-# ── Config ────────────────────────────────────────────────────────────────────
-MAX_WORKERS = 20   # parallel key fetches
-TIMEOUT     = 5    # seconds per license request
-# ──────────────────────────────────────────────────────────────────────────────
-
-SESSION = requests.Session()
-SESSION.headers.update({"User-Agent": "@cloudplay"})
-
-key_cache: dict = {}   # license_url -> JSON string or None
+OUTPUT_FILE  = "playlist.m3u"
 
 
-def clean_url(url):
-    """Strips '|drmScheme=clearkey' suffix to get the bare MPD URL."""
-    return url.split("|drmScheme=")[0] if "|drmScheme=" in url else url
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36"
+}
+
+def fetch_json(url):
+    resp = requests.get(url, headers=HEADERS, timeout=15)
+    resp.raise_for_status()
+    return resp.json()
 
 
-def fetch_clearkey(license_url):
-    """
-    Fetches a ClearKey license URL and returns the raw JSON string, e.g.
-      {"keys":[{"kty":"oct","kid":"...","k":"..."}],"type":"temporary"}
-    Returns None on any failure. Results are cached so duplicate URLs
-    are only fetched once.
-    """
-    if not license_url:
-        return None
+def main():
+    print("Fetching channel list ...")
+    channels = fetch_json(CHANNELS_URL)
 
-    # Cache hit — no network call needed
-    if license_url in key_cache:
-        return key_cache[license_url]
+    print("Fetching cookie ...")
+    cookie_data = fetch_json(COOKIE_URL)
+    # cookie_data is a list; second item holds the cookie string
+    cookie_str = ""
+    for item in cookie_data:
+        if "cookie" in item:
+            cookie_str = item["cookie"]
+            break
 
-    try:
-        resp = SESSION.get(license_url, timeout=TIMEOUT)
-        if resp.status_code != 200:
-            print(f"  [WARN] HTTP {resp.status_code} for {license_url}")
-            key_cache[license_url] = None
-            return None
-        raw = resp.text.strip()
-        json.loads(raw)          # validate JSON
-        key_cache[license_url] = raw
-        return raw
-    except Exception as e:
-        print(f"  [WARN] {license_url}: {e}")
-        key_cache[license_url] = None
-        return None
+    print("Fetching channel status / final URLs ...")
+    raw_status = fetch_json(STATUS_URL)
 
+    # Build a lookup: channel_id -> final_url (only when status != "failed" or final_url exists)
+    # We keep the final_url regardless of status so the caller decides what to do
+    status_map = {}
+    if isinstance(raw_status, list):
+        for entry in raw_status:
+            cid = str(entry.get("channel_id", ""))
+            final_url = entry.get("error_details", {}).get("final_url", "")
+            if cid and final_url:
+                status_map[cid] = final_url
+    elif isinstance(raw_status, dict):
+        # Single-channel response (as shown in the example)
+        cid = str(raw_status.get("channel_id", ""))
+        final_url = raw_status.get("error_details", {}).get("final_url", "")
+        if cid and final_url:
+            status_map[cid] = final_url
 
-def fetch_all_keys(channels):
-    """
-    Fires all license-key requests in parallel and returns a mapping of
-    license_url -> clearkey JSON (or None on failure).
-    Duplicate URLs are deduplicated before dispatching.
-    """
-    unique_urls = {
-        ch.get("license_url", "")
-        for ch in channels
-        if ch.get("license_url") and ch.get("mpd_url")
-    }
+    print(f"  {len(status_map)} channel(s) have a final_url in the status file.")
 
-    results = {}
-    done = 0
-    total = len(unique_urls)
+    # --- Build M3U ---
+    lines = ["#EXTM3U\n"]
 
-    with ThreadPoolExecutor(max_workers=MAX_WORKERS) as pool:
-        future_to_url = {pool.submit(fetch_clearkey, url): url for url in unique_urls}
-        for future in as_completed(future_to_url):
-            url = future_to_url[future]
-            results[url] = future.result()
-            done += 1
-            status = "✓" if results[url] else "⚠"
-            print(f"  [{done}/{total}] {status} {url[:80]}")
+    for ch in channels:
+        ch_id       = str(ch.get("id", ""))
+        name        = ch.get("name", "Unknown")
+        category    = ch.get("category", "")
+        logo        = ch.get("logo", "")
+        base_url    = ch.get("url", "")
+        key_id      = ch.get("keyId", "")
+        key         = ch.get("key", "")
 
-    return results
+        # Decide stream URL
+        if ch_id in status_map:
+            stream_url = status_map[ch_id]          # use the pre-cooked final_url
+        else:
+            stream_url = f"{base_url}?{cookie_str}" # append cookie as query string
 
+        # #EXTINF line with extended metadata
+        extinf = (
+            f'#EXTINF:-1 '
+            f'tvg-id="{ch_id}" '
+            f'tvg-name="{name}" '
+            f'tvg-logo="{logo}" '
+            f'group-title="{category}" '
+            f'key-id="{key_id}" '
+            f'key="{key}"'
+            f',{name}'
+        )
 
-def generate_m3u_from_url(jio_url, output_file):
-    print(f"Fetching channel list from {jio_url}...")
-    t0 = time.perf_counter()
+        # DRM key hint as a separate tag (widely supported by players like TiviMate, Kodi)
+        lines.append(extinf + "\n")
+        if key_id and key:
+            lines.append(f"#KODIPROP:inputstream.adaptive.license_type=clearkey\n")
+            lines.append(f'#KODIPROP:inputstream.adaptive.license_key={{"keys":[{{"kty":"oct","k":"{key}","kid":"{key_id}"}}],"type":"temporary"}}\n')
+        lines.append(stream_url + "\n")
+        lines.append("\n")
 
-    try:
-        resp = SESSION.get(jio_url, timeout=15)
-        resp.raise_for_status()
-        jio_data = resp.json()
-    except Exception as e:
-        print(f"Error fetching channel list: {e}")
-        return
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        f.writelines(lines)
 
-    if isinstance(jio_data, dict):
-        channels = list(jio_data.values())
-    elif isinstance(jio_data, list):
-        channels = jio_data
-    else:
-        print("Unexpected JSON structure.")
-        return
-
-    print(f"Found {len(channels)} channels.\n")
-    print(f"Fetching ClearKeys in parallel (workers={MAX_WORKERS}, timeout={TIMEOUT}s)...")
-
-    key_map = fetch_all_keys(channels)
-
-    print(f"\nWriting {output_file}...")
-    with open(output_file, "w", encoding="utf-8") as out:
-        out.write("#EXTM3U\n")
-
-        for channel in channels:
-            mpd_url     = channel.get("mpd_url", "")
-            license_url = channel.get("license_url", "")
-            if not mpd_url:
-                continue
-
-            channel_id = str(channel.get("id", ""))
-            name       = channel.get("name", "Unknown Channel")
-            logo       = channel.get("logo", "")
-            group      = channel.get("group", "Unknown")
-            base_url   = clean_url(mpd_url)
-
-            # Use fetched key JSON; fall back to dynamic URL if fetch failed
-            license_key_value = key_map.get(license_url) or license_url
-
-            out.write(
-                f'#EXTINF:-1 tvg-id="{channel_id}" '
-                f'tvg-logo="{logo}" '
-                f'group-title="{group}",'
-                f'{name}\n'
-            )
-            out.write(
-                '#KODIPROP:inputstream=inputstream.adaptive\n'
-                '#KODIPROP:inputstream.adaptive.manifest_type=mpd\n'
-                '#KODIPROP:inputstream.adaptive.license_type=clearkey\n'
-                '#KODIPROP:inputstream.adaptive.stream_headers=User-Agent=@cloudplay\n'
-                f'#KODIPROP:inputstream.adaptive.license_key={license_key_value}\n'
-            )
-            out.write(base_url + "|drmScheme=clearkey\n\n")
-
-    elapsed = time.perf_counter() - t0
-    print(f"\nDone! '{output_file}' written in {elapsed:.1f}s.")
+    print(f"\nDone! Playlist written to '{OUTPUT_FILE}' with {len(channels)} channel(s).")
 
 
 if __name__ == "__main__":
-    JIO_URL         = "https://noisy-truth-6766.streamstar18.workers.dev/"
-    OUTPUT_FILENAME = "jiotv.m3u"
-    generate_m3u_from_url(JIO_URL, OUTPUT_FILENAME)
+    main()
