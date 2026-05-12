@@ -24,7 +24,9 @@ jobs:
 
       # 3. Run your conversion script
       - name: Run Conversion Script
-        run: python jiotv.py
+        run: |
+          pip install requests --break-system-packages
+          python jiotv.py
 
       # 4. Commit and push the new playlist.m3u back to the repo
       - name: Commit and push changes
