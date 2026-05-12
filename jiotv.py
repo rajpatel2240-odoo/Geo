@@ -1,5 +1,6 @@
 import requests
 import json
+import sys
 
 # --- Source URLs ---
 CHANNELS_URL = "https://allinonereborn.online/jtv-fetch/jstr4web.json"
@@ -7,7 +8,6 @@ COOKIE_URL   = "https://allinonereborn.online/jstrweb2/cookies.json"
 STATUS_URL   = "https://allinonereborn.online/jtv-fetch/jstarcookie/cookie.json"
 
 OUTPUT_FILE  = "playlist.m3u"
-
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
@@ -21,19 +21,36 @@ HEADERS = {
     "Pragma": "no-cache",
 }
 
+SESSION = requests.Session()
+SESSION.headers.update(HEADERS)
+
+
 def fetch_json(url):
-    resp = requests.get(url, headers=HEADERS, timeout=15)
-    resp.raise_for_status()
-    return resp.json()
+    resp = SESSION.get(url, timeout=15, allow_redirects=True)
+    print(f"  [{url}] status={resp.status_code} content-length={len(resp.content)} bytes")
+    if resp.status_code != 200:
+        print(f"  ERROR: HTTP {resp.status_code}")
+        print(f"  Body preview: {resp.text[:300]}")
+        sys.exit(1)
+    if not resp.content:
+        print(f"  ERROR: Empty response body from {url}")
+        sys.exit(1)
+    try:
+        return resp.json()
+    except Exception as e:
+        print(f"  ERROR: JSON decode failed — {e}")
+        print(f"  Body preview: {resp.text[:500]}")
+        sys.exit(1)
 
 
 def main():
     print("Fetching channel list ...")
     channels = fetch_json(CHANNELS_URL)
+    if not isinstance(channels, list):
+        channels = [channels]
 
     print("Fetching cookie ...")
     cookie_data = fetch_json(COOKIE_URL)
-    # cookie_data is a list; second item holds the cookie string
     cookie_str = ""
     for item in cookie_data:
         if "cookie" in item:
@@ -43,8 +60,7 @@ def main():
     print("Fetching channel status / final URLs ...")
     raw_status = fetch_json(STATUS_URL)
 
-    # Build a lookup: channel_id -> final_url (only when status != "failed" or final_url exists)
-    # We keep the final_url regardless of status so the caller decides what to do
+    # Build a lookup: channel_id -> final_url
     status_map = {}
     if isinstance(raw_status, list):
         for entry in raw_status:
@@ -53,7 +69,6 @@ def main():
             if cid and final_url:
                 status_map[cid] = final_url
     elif isinstance(raw_status, dict):
-        # Single-channel response (as shown in the example)
         cid = str(raw_status.get("channel_id", ""))
         final_url = raw_status.get("error_details", {}).get("final_url", "")
         if cid and final_url:
@@ -65,21 +80,19 @@ def main():
     lines = ["#EXTM3U\n"]
 
     for ch in channels:
-        ch_id       = str(ch.get("id", ""))
-        name        = ch.get("name", "Unknown")
-        category    = ch.get("category", "")
-        logo        = ch.get("logo", "")
-        base_url    = ch.get("url", "")
-        key_id      = ch.get("keyId", "")
-        key         = ch.get("key", "")
+        ch_id    = str(ch.get("id", ""))
+        name     = ch.get("name", "Unknown")
+        category = ch.get("category", "")
+        logo     = ch.get("logo", "")
+        base_url = ch.get("url", "")
+        key_id   = ch.get("keyId", "")
+        key      = ch.get("key", "")
 
-        # Decide stream URL
         if ch_id in status_map:
-            stream_url = status_map[ch_id]          # use the pre-cooked final_url
+            stream_url = status_map[ch_id]
         else:
-            stream_url = f"{base_url}?{cookie_str}" # append cookie as query string
+            stream_url = f"{base_url}?{cookie_str}"
 
-        # #EXTINF line with extended metadata
         extinf = (
             f'#EXTINF:-1 '
             f'tvg-id="{ch_id}" '
@@ -91,7 +104,6 @@ def main():
             f',{name}'
         )
 
-        # DRM key hint as a separate tag (widely supported by players like TiviMate, Kodi)
         lines.append(extinf + "\n")
         if key_id and key:
             lines.append(f"#KODIPROP:inputstream.adaptive.license_type=clearkey\n")
