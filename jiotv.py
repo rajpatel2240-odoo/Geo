@@ -10,15 +10,23 @@ STATUS_URL   = "https://allinonereborn.online/jtv-fetch/jstarcookie/cookie.json"
 OUTPUT_FILE  = "playlist.m3u"
 
 HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
-    "Accept": "application/json, text/plain, */*",
-    "Accept-Language": "en-US,en;q=0.9",
-    "Accept-Encoding": "gzip, deflate, br",
-    "Connection": "keep-alive",
-    "Referer": "https://allinonereborn.online/",
-    "Origin": "https://allinonereborn.online",
-    "Cache-Control": "no-cache",
-    "Pragma": "no-cache",
+    "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
+    "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+    "accept-language": "en-IN,en-GB;q=0.9,en-US;q=0.8,en;q=0.7",
+    "accept-encoding": "gzip, deflate, br, zstd",
+    "cache-control": "no-cache",
+    "pragma": "no-cache",
+    "priority": "u=0, i",
+    "referer": "https://allinonereborn-livetv-hub.pages.dev/",
+    "sec-ch-ua": '"Google Chrome";v="147", "Not.A/Brand";v="8", "Chromium";v="147"',
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": '"Windows"',
+    "sec-fetch-dest": "document",
+    "sec-fetch-mode": "navigate",
+    "sec-fetch-site": "cross-site",
+    "sec-fetch-user": "?1",
+    "upgrade-insecure-requests": "1",
+    "dnt": "1",
 }
 
 SESSION = requests.Session()
@@ -39,7 +47,7 @@ def fetch_json(url):
         return resp.json()
     except Exception as e:
         print(f"  ERROR: JSON decode failed — {e}")
-        print(f"  Body preview: {resp.text[:500]}")
+        print(f"  Body preview (text): {resp.text[:300]}")
         sys.exit(1)
 
 
