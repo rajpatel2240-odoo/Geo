@@ -21,7 +21,7 @@ CHANNELS_URL = "https://allinonereborn.online/jtv-fetch/jstr4web.json"
 COOKIE_URL   = "https://allinonereborn.online/jstrweb2/cookies.json"
 STATUS_URL   = "https://allinonereborn.online/jtv-fetch/jstarcookie/cookie.json"
 
-OUTPUT_FILE  = "playlist.m3u"
+OUTPUT_FILE  = "jiotv.m3u"
 
 HEADERS = {
     "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36",
