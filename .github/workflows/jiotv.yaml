@@ -25,7 +25,7 @@ jobs:
       # 3. Run your conversion script
       - name: Run Conversion Script
         run: |
-          pip install requests --break-system-packages
+          pip install requests brotli zstandard
           python jiotv.py
 
       # 4. Commit and push the new playlist.m3u back to the repo
