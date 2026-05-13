@@ -3,7 +3,6 @@ import json
 import sys
 import zlib
 
-# pip install brotli zstandard
 try:
     import brotli
     HAS_BROTLI = True
@@ -49,79 +48,51 @@ SESSION.headers.update(HEADERS)
 
 def try_decompress(data):
     """Try every known compression format and return decoded text."""
-    # 1. Raw UTF-8 (no compression)
     try:
         return data.decode("utf-8")
     except Exception:
         pass
-
-    # 2. Brotli
     if HAS_BROTLI:
         try:
             return brotli.decompress(data).decode("utf-8")
         except Exception:
             pass
-
-    # 3. Zstandard
     if HAS_ZSTD:
         try:
             return zstd.ZstdDecompressor().decompress(data).decode("utf-8")
         except Exception:
             pass
-
-    # 4. Gzip
     try:
         return zlib.decompress(data, zlib.MAX_WBITS | 16).decode("utf-8")
     except Exception:
         pass
-
-    # 5. Zlib deflate
     try:
         return zlib.decompress(data).decode("utf-8")
     except Exception:
         pass
-
-    # 6. Raw deflate (no header)
     try:
         return zlib.decompress(data, -zlib.MAX_WBITS).decode("utf-8")
     except Exception:
         pass
-
     return None
 
 
 def fetch_json(url):
     resp = SESSION.get(url, timeout=15, allow_redirects=True)
-    enc = resp.headers.get("content-encoding", "none")
-    ct  = resp.headers.get("content-type", "")
-    print(f"  [{url}]")
-    print(f"    status={resp.status_code} size={len(resp.content)}B encoding={enc!r} content-type={ct!r}")
-
     if resp.status_code != 200:
-        print(f"  ERROR: HTTP {resp.status_code}")
+        print(f"ERROR: HTTP {resp.status_code} for {url}")
         sys.exit(1)
-
-    raw = resp.content
-    if not raw:
-        print("  ERROR: Empty response body")
+    if not resp.content:
+        print(f"ERROR: Empty response from {url}")
         sys.exit(1)
-
-    # Print first 8 bytes as hex to identify compression magic bytes
-    print(f"    First 8 bytes (hex): {raw[:8].hex()}")
-
-    text = try_decompress(raw)
+    text = try_decompress(resp.content)
     if text is None:
-        print("  ERROR: Could not decompress response with any known method")
+        print(f"ERROR: Could not decompress response from {url}")
         sys.exit(1)
-
-    text = text.strip()
-    print(f"    Decoded preview: {text[:80]}")
-
     try:
-        return json.loads(text)
+        return json.loads(text.strip())
     except Exception as e:
-        print(f"  ERROR: JSON decode failed — {e}")
-        print(f"  Full text preview:\n{text[:500]}")
+        print(f"ERROR: JSON decode failed for {url} — {e}")
         sys.exit(1)
 
 
@@ -130,6 +101,7 @@ def main():
     channels = fetch_json(CHANNELS_URL)
     if not isinstance(channels, list):
         channels = [channels]
+    print(f"  {len(channels)} channels found.")
 
     print("Fetching cookie ...")
     cookie_data = fetch_json(COOKIE_URL)
@@ -138,11 +110,11 @@ def main():
         if "cookie" in item:
             cookie_str = item["cookie"]
             break
+    print(f"  Cookie: {cookie_str[:40]}...")
 
     print("Fetching channel status / final URLs ...")
     raw_status = fetch_json(STATUS_URL)
 
-    # Build lookup: channel_id -> final_url
     status_map = {}
     if isinstance(raw_status, list):
         for entry in raw_status:
@@ -151,12 +123,12 @@ def main():
             if cid and final_url:
                 status_map[cid] = final_url
     elif isinstance(raw_status, dict):
-        cid = str(raw_status.get("channel_id", ""))
-        final_url = raw_status.get("error_details", {}).get("final_url", "")
-        if cid and final_url:
-            status_map[cid] = final_url
-
-    print(f"  {len(status_map)} channel(s) have a final_url in the status file.")
+        for entry in raw_status.get("channels", [raw_status]):
+            cid = str(entry.get("channel_id", ""))
+            final_url = entry.get("error_details", {}).get("final_url", "")
+            if cid and final_url:
+                status_map[cid] = final_url
+    print(f"  {len(status_map)} channel(s) with a final_url.")
 
     # --- Build M3U ---
     lines = ["#EXTM3U\n"]
@@ -194,7 +166,7 @@ def main():
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
         f.writelines(lines)
 
-    print(f"\nDone! Playlist written to '{OUTPUT_FILE}' with {len(channels)} channel(s).")
+    print(f"\nDone! '{OUTPUT_FILE}' written with {len(channels)} channels.")
 
 
 if __name__ == "__main__":
