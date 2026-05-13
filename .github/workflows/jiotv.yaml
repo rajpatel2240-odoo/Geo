@@ -2,33 +2,27 @@ name: Auto-Update Jio M3U Playlist
 
 on:
   schedule:
-    # Runs at minute 0 past every 3rd hour
-    - cron: '0 * * * *' 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch: 
+    - cron: '0 * * * *'
+  workflow_dispatch:
 
 jobs:
   update-playlist:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Checkout the repository to access convert.py and meta.txt
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # 2. Set up the Python environment
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
 
-      # 3. Run your conversion script
       - name: Run Conversion Script
         run: |
           pip install requests brotli zstandard
           python jiotv.py
 
-      # 4. Commit and push the new playlist.m3u back to the repo
       - name: Commit and push changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -39,7 +33,7 @@ jobs:
 
           PUSHED=false
           for i in 1 2 3; do
-            git pull --rebase origin main && git push origin main && PUSHED=true && break
+            git pull origin main --rebase --strategy-option=theirs && git push origin main && PUSHED=true && break
             echo "Push failed, retrying ($i)..."
             sleep 5
           done
