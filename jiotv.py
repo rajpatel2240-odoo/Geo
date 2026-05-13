@@ -40,7 +40,7 @@ def process_channel(channel):
         
     m3u_lines.append(final_url)
     
-    return "\n\n".join(m3u_lines)
+    return "\n".join(m3u_lines)
 
 def generate_m3u(output_m3u_path, max_workers=15):
     print(f"Fetching JSON data from: {JSON_URL}")
@@ -69,7 +69,7 @@ def generate_m3u(output_m3u_path, max_workers=15):
     with open(output_m3u_path, 'w', encoding='utf-8') as f:
         f.write("#EXTM3U\n")
         for result in results:
-            f.write(result + "\n")
+            f.write(result + "\n\n")
             
     print(f"\nSuccess! M3U playlist saved to '{output_m3u_path}'.")
 
