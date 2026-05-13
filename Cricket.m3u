@@ -3,91 +3,40 @@
 
 
 
-
 #EXTM3U
 
 # ========================================================
 #                  RKDYIPTV PREMIUM
 # ========================================================
-# Generated : 12-05-2026 07:08 PM
+# Generated : 13-05-2026 08:04 PM
 # Format    : M3U + KODIPROP DRM
 # Author    : RKDYIPTV
 # Telegram  : @RKDYIPTV
 # ========================================================
-# RKDYIPTV • Gujarat Titans vs Sunrisers Hyderabad | WILLOW [AD-FREE]
-#EXTINF:-1 tvg-id="6ecb3dfe17e63b1c5801501569d5af1f" tvg-name="Gujarat Titans vs Sunrisers Hyderabad | WILLOW [AD-FREE]" tvg-logo="https://serveproxy.com/?url=https://img.sofascore.com/api/v1/team/216006/image" group-title="INDIAN PREMIER LEAGUE",Gujarat Titans vs Sunrisers Hyderabad | WILLOW [AD-FREE]
-#KODIPROP:inputstream=inputstream.adaptive
-#KODIPROP:inputstream.adaptive.manifest_type=mpd
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=01c6a91ded406339be138e51094c6712:a5a7b8bc54ddd1632beef459c2e295d2
-https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/ixrd6ejrv9/out/v1/4604f9d16228461c9eabfeee7dbe2d8e/cenc.mpd
 
 # ─────────────────────────────────────
-# RKDYIPTV • Gujarat Titans vs Sunrisers Hyderabad | SKY SPORTS FHD
-#EXTINF:-1 tvg-id="6ecb3dfe17e63b1c5801501569d5af1f" tvg-name="Gujarat Titans vs Sunrisers Hyderabad | SKY SPORTS FHD" tvg-logo="https://serveproxy.com/?url=https://img.sofascore.com/api/v1/team/216006/image" group-title="INDIAN PREMIER LEAGUE",Gujarat Titans vs Sunrisers Hyderabad | SKY SPORTS FHD
+# RKDYIPTV • Royal Challengers Bengaluru vs Kolkata Knight Riders | WILLOW [AD-FREE]
+#EXTINF:-1 tvg-id="6bc07c0483e6ab59a5626b4f2168ba7a" tvg-name="Royal Challengers Bengaluru vs Kolkata Knight Riders | WILLOW [AD-FREE]" tvg-logo="https://serveproxy.com/?url=https://img.sofascore.com/api/v1/team/187843/image" group-title="INDIAN PREMIER LEAGUE",Royal Challengers Bengaluru vs Kolkata Knight Riders | WILLOW [AD-FREE]
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=aefc2c8d1c8840f1b6981f856c9269ba:cf8ea114c45b4d6596b2748258ab74d6
-https://dice-live-oc.akamaized.net/hdntl=exp=1778671278~acl=%2f*~id=dcda6e4e-4c4c-4557-9085-e669adf502ef~data=hdntl,aXA9MTA4LjE4MS4wLjE3MSZleHA9MTc3ODU4NDkwOCZlaWQ9OTM5OTc3Jm9pZD0xNTQmdHlwZT1WT0QmdWlkPXhSUnFvOXxiY2FlYTdjZi1jMzM3LTQwMzktODE1OC0zYzFjZTQ5ZTcyOTMmY2lkPWRjZS5maXNmZWQmcHQ9bnVsbA~hmac=3a6092f1e73456d3c70aafaac8390cc9fec5b13d08fc808e8dc695e97adad0b0/dash/live/2093710/219026-321025/manifest-d.mpd
+#KODIPROP:inputstream.adaptive.license_key=5965e952ed6d29d9e4db3d41c5e6faa1:3727cbcd916f074b0345e533093dfa62
+https://otte.cache.aiv-cdn.net/iad-nitro/live/clients/dash/enc/6ehp4ocx4k/out/v1/e780f620aabe452cb607054c866ad32f/cenc.mpd
 
 # ─────────────────────────────────────
-# RKDYIPTV • Gujarat Titans vs Sunrisers Hyderabad | SKY SPORTS 4K
-#EXTINF:-1 tvg-id="6ecb3dfe17e63b1c5801501569d5af1f" tvg-name="Gujarat Titans vs Sunrisers Hyderabad | SKY SPORTS 4K" tvg-logo="https://serveproxy.com/?url=https://img.sofascore.com/api/v1/team/216006/image" group-title="INDIAN PREMIER LEAGUE",Gujarat Titans vs Sunrisers Hyderabad | SKY SPORTS 4K
+# RKDYIPTV • Royal Challengers Bengaluru vs Kolkata Knight Riders | SKY SPORTS FHD
+#EXTINF:-1 tvg-id="6bc07c0483e6ab59a5626b4f2168ba7a" tvg-name="Royal Challengers Bengaluru vs Kolkata Knight Riders | SKY SPORTS FHD" tvg-logo="https://serveproxy.com/?url=https://img.sofascore.com/api/v1/team/187843/image" group-title="INDIAN PREMIER LEAGUE",Royal Challengers Bengaluru vs Kolkata Knight Riders | SKY SPORTS FHD
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=4d346b1d1ae64d4a800409cffa14983e:208c972bd2da4359ac94e6944fe378b6
-https://dice-live-oc.akamaized.net/hdntl=exp=1778671285~acl=%2f*~id=9292cb6a-0cc1-43bc-9200-073d0468d68e~data=hdntl,aXA9MTA4LjE4MS4wLjE3MSZleHA9MTc3ODU4NDkxNSZlaWQ9OTM2NDI0Jm9pZD0xNTQmdHlwZT1WT0QmdWlkPXhSUnFvOXxiY2FlYTdjZi1jMzM3LTQwMzktODE1OC0zYzFjZTQ5ZTcyOTMmY2lkPWRjZS5maXNmZWQmcHQ9bnVsbA~hmac=9824a1d2cb79ca7425984033bbda75843948baf21c9f5553fa2a7735698300e4/dash/live/2093666/294921-318514/manifest-d.mpd
-
+#KODIPROP:inputstream.adaptive.license_key=708a98b352bd4418a73a028edd84da8f:b1fa5c2bca4c4b57b924b748564532cb
+https://dice-live-oc.akamaized.net/hdntl=exp=1778758219~acl=%2f*~id=c7cd7823-86a9-4fb3-b1b9-77b287bc40bb~data=hdntl,aXA9MjA4Ljg3LjI0Mi4xMTEmZXhwPTE3Nzg2NzE4NDgmZWlkPTkzNjQ2NCZvaWQ9MTU0JnR5cGU9Vk9EJnVpZD14UlJxbzl8YmNhZWE3Y2YtYzMzNy00MDM5LTgxNTgtM2MxY2U0OWU3MjkzJmNpZD1kY2UuZmlzZmVkJnB0PW51bGw~hmac=5316976585f84acae4c2761846403d5d2407714372ca863af330ad9451a4671f/dash/live/2093715/219027-321028/manifest-d.mpd
 
 # ─────────────────────────────────────
-# RKDYIPTV • Gujarat Titans vs Sunrisers Hyderabad | KAYO HINDI FHD
-#EXTINF:-1 tvg-id="6ecb3dfe17e63b1c5801501569d5af1f" tvg-name="Gujarat Titans vs Sunrisers Hyderabad | KAYO HINDI FHD" tvg-logo="https://serveproxy.com/?url=https://img.sofascore.com/api/v1/team/216006/image" group-title="INDIAN PREMIER LEAGUE",Gujarat Titans vs Sunrisers Hyderabad | KAYO HINDI FHD
+# RKDYIPTV • Royal Challengers Bengaluru vs Kolkata Knight Riders | KAYO HINDI FHD
+#EXTINF:-1 tvg-id="6bc07c0483e6ab59a5626b4f2168ba7a" tvg-name="Royal Challengers Bengaluru vs Kolkata Knight Riders | KAYO HINDI FHD" tvg-logo="https://serveproxy.com/?url=https://img.sofascore.com/api/v1/team/187843/image" group-title="INDIAN PREMIER LEAGUE",Royal Challengers Bengaluru vs Kolkata Knight Riders | KAYO HINDI FHD
 #KODIPROP:inputstream=inputstream.adaptive
 #KODIPROP:inputstream.adaptive.manifest_type=mpd
 #KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=368d67493ff259d9823b96b89b761386:1bd0324aa4f1473fe0612cffe46b05a2
-https://dck1-ac-live.cdn.indazn.com/out/v1/814bffb9b389f652/d7c17f9575ba40798a8c63c738b150b3/index.mpd
-
-
-
-#EXTINF:-1 tvg-id="1108" tvg-logo="https://img.media.jio.com/tvpimages/5/6/301982_1749665314605_l_medium.jpg" group-title="Sports",Star Sports HD1 Hindi
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=400131994b445d8c8817202248760fda:2d56cb6f07a75b9aff165d534ae2bfc4
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD1_Hindi_BTS/WDVLive/index.mpd?__hdnea__=st=1778586875~exp=1778608475~acl=/bpk-tv/Star_Sports_HD1_Hindi_BTS/WDVLive/*~hmac=ee5a3ecfc7db939091e96af2ca0116ff360772d3900cf832e400982812f98e49
-
-#EXTINF:-1 tvg-id="1106" tvg-logo="https://img.media.jio.com/tvpimages/76/32/301981_1749665664018_l_medium.jpg" group-title="Sports",Star Sports HD1
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=965dc2ddb1d85138ad787999a7f30ca5:859695076e67fe961836b564db6d689c
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD1_BTS/WDVLive/index.mpd?__hdnea__=st=1778586878~exp=1778608478~acl=/bpk-tv/Star_Sports_HD1_BTS/WDVLive/*~hmac=55069bac7b42ebb40de74f6718016608e0e0809f52c6e40a8da4f71e121c1c80
-
-#EXTINF:-1 tvg-id="1109" tvg-logo="https://img.media.jio.com/tvpimages/41/51/301983_1749666169105_l_medium.jpg" group-title="Sports",Star Sports HD2
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=9457eb90129456fa8ea95e10ba4ac51e:e620a970cea474c491ac78ae71a4d764
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD2_BTS/WDVLive/index.mpd?__hdnea__=st=1778586880~exp=1778608480~acl=/bpk-tv/Star_Sports_HD2_BTS/WDVLive/*~hmac=b409018f5d587e053c4fd091c53c1033bc604703c4df8bf2e43bb6520d62ddad
-
-#EXTINF:-1 tvg-id="1984" tvg-logo="https://img.media.jio.com/tvpimages/56/36/301229_1742214332015_l_medium.jpg" group-title="Sports",Star Sports 2 Hindi HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=bd1ea6a1c1fb5dcdb709434e0826bbc0:f57f22cba32739ce7beb1fab3f3d060b
-https://jiotvpllive.cdn.jio.com/bpk-tv/StarSportsHD2Hin_BTS/WDVLive/index.mpd?__hdnea__=st=1778586881~exp=1778608481~acl=/bpk-tv/StarSportsHD2Hin_BTS/WDVLive/*~hmac=0ec3485b9ca991630bf28b657d11add4e05483d6efeaba1749c272c9da9cb200
-
-#EXTINF:-1 tvg-id="3273" tvg-logo="https://img.media.jio.com/tvpimages/50/43/302120_1749664850896_l_medium.jpg" group-title="Sports",Star Sports 2 Tamil HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=dc44fe6251825774b90d58dcfa7d94e0:63e3ae853f483a86752b5b9e6d61eb20
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports2_Tamil_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1778586883~exp=1778608483~acl=/bpk-tv/Star_Sports2_Tamil_HD_BTS/WDVLive/*~hmac=37145e9a5e20897830a551eae908e53c76e3393e77676da8daee79b61c0a4aa1
-
-#EXTINF:-1 tvg-id="3274" tvg-logo="https://img.media.jio.com/tvpimages/84/67/302121_1749664974599_l_medium.jpg" group-title="Sports",Star Sports 2 Telugu HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=c8a2fb190fc957c1b8333af9a7a39d31:be7497b59d4ce9e33d29bfd1d38bad1d
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports2_Telugu_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1778586884~exp=1778608484~acl=/bpk-tv/Star_Sports2_Telugu_HD_BTS/WDVLive/*~hmac=0e96c66a8f0ea4b3f90f33a5c6017cec675b65f1231e94ef97a443d0c2531d18
-
-#EXTINF:-1 tvg-id="3277" tvg-logo="https://img.media.jio.com/tvpimages/19/19/302122_1749662923298_l_medium.jpg" group-title="Sports",Star Sports 1 Tamil HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=2272c0bc6b2e5cb090b1f55996e0026c:943923934de1d5536ab01c67fca8b337
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_1_Tamil_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1778586886~exp=1778608486~acl=/bpk-tv/Star_Sports_1_Tamil_HD_BTS/WDVLive/*~hmac=a398f260f00f9d6ce4f747a3fb019068f9258f0e5ae5ee90c61bdfacce396dbd
-
-#EXTINF:-1 tvg-id="3278" tvg-logo="https://img.media.jio.com/tvpimages/19/57/302123_1749663029798_l_medium.jpg" group-title="Sports",Star Sports 1 Telugu HD
-#KODIPROP:inputstream.adaptive.license_type=clearkey
-#KODIPROP:inputstream.adaptive.license_key=49e84b9edfd85379b90c81b7d2d3d2bf:19c82d3ff094fa06af95820a1572ecb5
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_1_Telugu_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1778586887~exp=1778608487~acl=/bpk-tv/Star_Sports_1_Telugu_HD_BTS/WDVLive/*~hmac=94c9a130994f3f7c0b61a04920f8f2101654ac315aa025999fa38b6e0c1a40a5
+#KODIPROP:inputstream.adaptive.license_key=c18e0a678b70572ca99f9efe1f297f5a:ddf3933d1fbc8c5d1f84870c3b56a22c
+https://dck1-ac-live.cdn.indazn.com/out/v1/814bffb9b389f652/0fb45955afd944b19d988688141c0da3/index.mpd
