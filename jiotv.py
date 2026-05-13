@@ -181,8 +181,6 @@ def main():
             f'tvg-name="{name}" '
             f'tvg-logo="{logo}" '
             f'group-title="{category}" '
-            f'key-id="{key_id}" '
-            f'key="{key}"'
             f',{name}'
         )
 
