@@ -1,6 +1,20 @@
 import requests
 import json
 import sys
+import zlib
+
+# pip install brotli zstandard
+try:
+    import brotli
+    HAS_BROTLI = True
+except ImportError:
+    HAS_BROTLI = False
+
+try:
+    import zstandard as zstd
+    HAS_ZSTD = True
+except ImportError:
+    HAS_ZSTD = False
 
 # --- Source URLs ---
 CHANNELS_URL = "https://allinonereborn.online/jtv-fetch/jstr4web.json"
@@ -33,21 +47,81 @@ SESSION = requests.Session()
 SESSION.headers.update(HEADERS)
 
 
+def try_decompress(data):
+    """Try every known compression format and return decoded text."""
+    # 1. Raw UTF-8 (no compression)
+    try:
+        return data.decode("utf-8")
+    except Exception:
+        pass
+
+    # 2. Brotli
+    if HAS_BROTLI:
+        try:
+            return brotli.decompress(data).decode("utf-8")
+        except Exception:
+            pass
+
+    # 3. Zstandard
+    if HAS_ZSTD:
+        try:
+            return zstd.ZstdDecompressor().decompress(data).decode("utf-8")
+        except Exception:
+            pass
+
+    # 4. Gzip
+    try:
+        return zlib.decompress(data, zlib.MAX_WBITS | 16).decode("utf-8")
+    except Exception:
+        pass
+
+    # 5. Zlib deflate
+    try:
+        return zlib.decompress(data).decode("utf-8")
+    except Exception:
+        pass
+
+    # 6. Raw deflate (no header)
+    try:
+        return zlib.decompress(data, -zlib.MAX_WBITS).decode("utf-8")
+    except Exception:
+        pass
+
+    return None
+
+
 def fetch_json(url):
     resp = SESSION.get(url, timeout=15, allow_redirects=True)
-    print(f"  [{url}] status={resp.status_code} content-length={len(resp.content)} bytes")
+    enc = resp.headers.get("content-encoding", "none")
+    ct  = resp.headers.get("content-type", "")
+    print(f"  [{url}]")
+    print(f"    status={resp.status_code} size={len(resp.content)}B encoding={enc!r} content-type={ct!r}")
+
     if resp.status_code != 200:
         print(f"  ERROR: HTTP {resp.status_code}")
-        print(f"  Body preview: {resp.text[:300]}")
         sys.exit(1)
-    if not resp.content:
-        print(f"  ERROR: Empty response body from {url}")
+
+    raw = resp.content
+    if not raw:
+        print("  ERROR: Empty response body")
         sys.exit(1)
+
+    # Print first 8 bytes as hex to identify compression magic bytes
+    print(f"    First 8 bytes (hex): {raw[:8].hex()}")
+
+    text = try_decompress(raw)
+    if text is None:
+        print("  ERROR: Could not decompress response with any known method")
+        sys.exit(1)
+
+    text = text.strip()
+    print(f"    Decoded preview: {text[:80]}")
+
     try:
-        return resp.json()
+        return json.loads(text)
     except Exception as e:
         print(f"  ERROR: JSON decode failed — {e}")
-        print(f"  Body preview (text): {resp.text[:300]}")
+        print(f"  Full text preview:\n{text[:500]}")
         sys.exit(1)
 
 
@@ -68,7 +142,7 @@ def main():
     print("Fetching channel status / final URLs ...")
     raw_status = fetch_json(STATUS_URL)
 
-    # Build a lookup: channel_id -> final_url
+    # Build lookup: channel_id -> final_url
     status_map = {}
     if isinstance(raw_status, list):
         for entry in raw_status:
@@ -114,7 +188,7 @@ def main():
 
         lines.append(extinf + "\n")
         if key_id and key:
-            lines.append(f"#KODIPROP:inputstream.adaptive.license_type=clearkey\n")
+            lines.append("#KODIPROP:inputstream.adaptive.license_type=clearkey\n")
             lines.append(f'#KODIPROP:inputstream.adaptive.license_key={{"keys":[{{"kty":"oct","k":"{key}","kid":"{key_id}"}}],"type":"temporary"}}\n')
         lines.append(stream_url + "\n")
         lines.append("\n")
