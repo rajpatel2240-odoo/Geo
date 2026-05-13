@@ -38,12 +38,9 @@ def process_channel(channel):
         m3u_lines.append('#KODIPROP:inputstream.adaptive.license_type=clearkey')
         m3u_lines.append(f'#KODIPROP:inputstream.adaptive.license_key={key}')
         
-    if user_agent and user_agent != "null":
-        m3u_lines.append(f'#EXTVLCOPT:http-user-agent={user_agent}')
-        
     m3u_lines.append(final_url)
     
-    return "\n".join(m3u_lines)
+    return "\n\n".join(m3u_lines)
 
 def generate_m3u(output_m3u_path, max_workers=15):
     print(f"Fetching JSON data from: {JSON_URL}")
