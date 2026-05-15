@@ -104,7 +104,7 @@ def generate_m3u():
             
         m3u_lines.append(final_stream_url)
 
-    output_filename = "playlist.m3u"
+    output_filename = "jioplus.m3u"
     with open(output_filename, "w", encoding="utf-8") as f:
         f.write("\n".join(m3u_lines))
 
