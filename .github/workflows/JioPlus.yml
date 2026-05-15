@@ -22,7 +22,9 @@ jobs:
           python-version: '3.11'
 
       - name: Run Python script
-        run: python jioplus.py 
+        run: |
+          pip install cloudscraper
+          python jioplus.py 
 
       - name: Commit and push generated M3U
         run: |
