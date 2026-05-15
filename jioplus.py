@@ -103,6 +103,7 @@ def generate_m3u():
             m3u_lines.append(f'#KODIPROP:inputstream.adaptive.license_key={key_id}:{key}')
             
         m3u_lines.append(final_stream_url)
+        m3u_lines.append("\n")
 
     output_filename = "jioplus.m3u"
     with open(output_filename, "w", encoding="utf-8") as f:
