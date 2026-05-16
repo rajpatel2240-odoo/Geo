@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Python script
         run: |
-          pip install cloudscraper
+          pip install cloudscraper requests
           python jioplus.py 
 
       - name: Commit and push generated M3U
