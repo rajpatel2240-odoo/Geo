@@ -1,3 +1,6 @@
+#Credits 🙏: cloudplay
+#Telegram: https://t.me/cloudply
+
 import json
 import requests
 from concurrent.futures import ThreadPoolExecutor
