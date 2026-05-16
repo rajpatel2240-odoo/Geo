@@ -53,7 +53,7 @@ def generate_m3u():
     )
 
     print("Fetching data from the URLs...")
-s
+
     try:
         response1 = scraper.get(url1, headers=headers)
         response1.raise_for_status() 
