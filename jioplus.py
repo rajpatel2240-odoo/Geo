@@ -1,3 +1,9 @@
+#Credits 🙏: cloudplay
+#Telegram: https://t.me/cloudply
+
+#Credits 🙏: allinonereborn
+#Website: https://allinonereborn-livetv-hub.pages.dev/
+
 import cloudscraper
 import requests
 import json
