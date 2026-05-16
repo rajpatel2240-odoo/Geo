@@ -30,8 +30,7 @@ def process_channel(channel):
         except requests.RequestException as e:
             print(f"Failed to fetch key for {name}: {e}")
 
-    m3u_lines = ["Credits 🙏: cloudplay",
-                "Telegram: https://t.me/cloudply"]
+    m3u_lines = []
     
     m3u_lines.append(f'#EXTINF:-1 tvg-id="{chan_id}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{name}')
     
@@ -69,6 +68,8 @@ def generate_m3u(output_m3u_path, max_workers=15):
 
     with open(output_m3u_path, 'w', encoding='utf-8') as f:
         f.write("#EXTM3U\n")
+        f.write("#Credits 🙏: cloudplay\n")
+        f.write("#Telegram: https://t.me/cloudply")
         for result in results:
             f.write(result + "\n\n")
             
