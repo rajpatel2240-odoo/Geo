@@ -164,9 +164,9 @@ def generate_m3u():
     with open(output_filename, "w", encoding="utf-8") as f:
         f.write("#Credits 🙏: cloudplay\n")
         f.write("#Telegram: https://t.me/cloudply\n")
-        f.write("Credits 🙏: allinonereborn\n")
-        f.write("Website: https://allinonereborn-livetv-hub.pages.dev/\n")
-        f.write("\n".join(m3u_lines) + "\n")
+        f.write("#Credits 🙏: allinonereborn\n")
+        f.write("#Website: https://allinonereborn-livetv-hub.pages.dev/\n")
+        f.write("\n\n".join(m3u_lines) + "\n")
 
     print(f"Success! '{output_filename}' has been generated with {len(channels_data)} channels.")
 
