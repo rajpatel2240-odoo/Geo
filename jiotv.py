@@ -30,7 +30,8 @@ def process_channel(channel):
         except requests.RequestException as e:
             print(f"Failed to fetch key for {name}: {e}")
 
-    m3u_lines = []
+    m3u_lines = ["Credits 🙏: cloudplay\n"]
+    m3u_lines.append("Telegram: https://t.me/cloudply")
     
     m3u_lines.append(f'#EXTINF:-1 tvg-id="{chan_id}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{name}')
     
