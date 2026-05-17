@@ -1,6 +1,6 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 10:02:02 PM 17-05-2026
+# Last Updated: 11:02:48 PM 17-05-2026
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131190_5427_ATH_CEV_FC-Web.png" group-title="Fancode",Football | Athletic Club vs RC Celta (LALIGA 2025-26)
 https://in-mc-fblive.fancode.com/mumbai/131190_english_hls_5be452741e86743_1ta-di_h264/index.m3u8
@@ -32,9 +32,9 @@ https://in-mc-fblive.fancode.com/mumbai/131193_english_hls_bb81e4b92d72599_1ta-d
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131191_5427_ATL_GIR_FC-Web.png" group-title="Fancode",Football | Atletico de Madrid vs Girona FC (LALIGA 2025-26)
 https://in-mc-fblive.fancode.com/mumbai/131191_english_hls_ab8a49562f8350_1ta-di_h264/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1778731390482.png" group-title="Fancode",Tennis | Day 1 - Main Feed vs Hamburg (ATP 500 - Bitpanda Hamburg Open 2026)
-https://in-mc-fblive.fancode.com/mumbai/142261_english_hls_649061a43666015_1ta-di_h264/index.m3u8
-
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Casper-Ruud-vs-Luciano-Darderi_fc-web_1779011889906.jpg" group-title="Fancode",Tennis | Finals: J. Sinner vs C. Ruud vs Rome, Italy (ATP Masters Internazionali BNL d'Italia 2026)
 https://in-mc-fblive.fancode.com/mumbai/142757_english_hls_27101c767742_1ta-di_h264/index.m3u8
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/PGA-Championship-old-.jpg" group-title="Fancode",Golf | Day 4 vs Aronimink (PGA Championship 2026)
+https://in-mc-fblive.fancode.com/mumbai/142630_english_hls_f4f36f686442022_1ta-di_h264/index.m3u8
 
