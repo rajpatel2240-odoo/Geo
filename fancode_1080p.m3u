@@ -1,15 +1,15 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 04:10:58 PM 19-05-2026
+# Last Updated: 07:13:42 PM 19-05-2026
 
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Pakistan-tour-of-Bangladesh-2026-old-.png" group-title="Fancode",Cricket | Bangladesh vs Pakistan (Pakistan tour of Bangladesh, 2026)
-https://in-mc-fblive.fancode.com/mumbai/142161_english_hls_e85dce235994710_1ta-di_h264/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142436_6076_GSY_AUT_fc-web.jpg" group-title="Fancode",Cricket | Guernsey vs Austria (ICC Men's T20 WC Europe Sub Regional Qualifier A)
+https://in-mc-fblive.fancode.com/mumbai/142436_english_hls_cff641ba8e54766_1ta-di_h264/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Supercola-Regional-List-A-Tournament,-2026_FC-WEB_1779005924089.jpg" group-title="Fancode",Cricket | Speen Ghar Region vs Band-e-Amir Region (Supercola Regional List A Tournament, 2026)
-https://in-mc-fblive.fancode.com/mumbai/142741_english_hls_351bc6c7ad12695_1ta-di_h264/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142435_6076_SUI_CRO_fc-web.jpg" group-title="Fancode",Cricket | Croatia vs Switzerland (ICC Men's T20 WC Europe Sub Regional Qualifier A)
+https://in-mc-fblive.fancode.com/mumbai/142435_english_hls_5aeb40d09d3478_1ta-di_h264/index.m3u8
 
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142434_6076_SWE_SLO_fc-web.jpg" group-title="Fancode",Cricket | Slovenia vs Sweden (ICC Men's T20 WC Europe Sub Regional Qualifier A)
-https://in-mc-fblive.fancode.com/mumbai/142434_english_hls_d68da4aeaf13895_1ta-di_h264/index.m3u8
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg" group-title="Fancode",Cricket | Guyana Harpy Eagles vs Trinidad & Tobago Red Force (West Indies Championship 2026)
+https://in-mc-fblive.fancode.com/mumbai/141958_english_hls_6e2aad8a8218613_1ta-di_h264/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Gonet-Geneva-Open,-ATP-250-old-.jpg" group-title="Fancode",Tennis | Day 3 - Main Feed vs Geneva (ATP 250 - Gonet Geneva Open 2026)
 https://in-mc-fblive.fancode.com/mumbai/142270_english_hls_cf1267425f67506_1ta-di_h264/index.m3u8
@@ -19,7 +19,4 @@ https://in-mc-fblive.fancode.com/mumbai/142263_english_hls_fe4e91bebf98154_1ta-d
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Mini-Match-Card-(1080x810)_1778731390482.png" group-title="Fancode",Tennis | Day 3 - Main Feed vs Hamburg (ATP 500 - Bitpanda Hamburg Open 2026)
 https://in-mc-fblive.fancode.com/mumbai/142883_english_hls_59addd2f7d84094_1ta-di_h264/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/142433_6076_JER_FRA_fc-web.jpg" group-title="Fancode",Cricket | France Cricket vs Jersey (ICC Men's T20 WC Europe Sub Regional Qualifier A)
-https://in-mc-fblive.fancode.com/mumbai/142433_english_hls_6dc30bdc2c19001_1ta-di_h264/index.m3u8
 
