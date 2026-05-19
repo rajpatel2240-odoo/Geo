@@ -2,7 +2,7 @@ name: Auto-Update Fancode M3U Playlist
 
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '7,22,37,52 * * * *'
   # Allows you to trigger the workflow manually from the GitHub Actions tab
   workflow_dispatch:
 
