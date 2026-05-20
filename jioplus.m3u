@@ -27,7 +27,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/ZeeTalkies_MOB/WDVLive/index.mpd?__hdnea_
 #EXTINF:-1 tvg-id="156" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_HD.png" group-title="Movies",Star Gold HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=ec7ad3786d9e5efa9e0c4aeb3e58c7b7:907509ccae7e68b30ae75b5d09fe60ef
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1779244204~exp=1779265804~acl=/bpk-tv/Star_Gold_HD_BTS/WDVLive/*~hmac=a455939979efbfed990627192acb68bb6bf41fe3239dd99f91a39803f0a96348
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1779265807~exp=1779287407~acl=/bpk-tv/Star_Gold_HD_BTS/WDVLive/*~hmac=930478d03b55ebcd5549847dafc4d723ade42c5cdaacc8d2217866f85f65b32e
 #EXTINF:-1 tvg-id="164" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Travel_XP_HD.png" group-title="English",Travelxp HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=157cd1bd71a256fe8ab763ba280320e5:6befde8b90b6926423cc83775b8dcb59
