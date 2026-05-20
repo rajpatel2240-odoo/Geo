@@ -1,9 +1,8 @@
 name: Auto Update JioPlus
 
 on:
-  schedule:
-    - cron: '7,22,37,52 * * * *'
-  workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-jioplus-sync]
 
 jobs:
   build-and-update:
