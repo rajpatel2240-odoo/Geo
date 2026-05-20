@@ -1,9 +1,6 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 12:06:01 AM 21-05-2026
-
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/WI-Test_web.jpg" group-title="Fancode",Cricket | Guyana Harpy Eagles vs Trinidad & Tobago Red Force (West Indies Championship 2026)
-https://in-mc-fblive.fancode.com/mumbai/141958_english_hls_6e2aad8a8282305_1ta-di_h264/index.m3u8
+# Last Updated: 12:26:14 AM 21-05-2026
 
 #EXTINF:-1 tvg-logo="https://images.fancode.com/aig/match/v1779245353729/142704_CASACARDS_APP.png" group-title="Fancode",Football | Al Khaleej FC vs Al-Ahli Saudi FC (Roshn Saudi League 2025-2026)
 https://in-mc-fblive.fancode.com/mumbai/142704_english_hls_0209abb40795656_1ta-di_h264/index.m3u8
