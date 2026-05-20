@@ -115,7 +115,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/Discovery_Channel_Eng_MOB/WDVLive/index.m
 #EXTINF:-1 tvg-id="248" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/MTV.png" group-title="Music",MTV
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=3af9106a677854a1b9f043eed3124e02:1e042abd297460e5031f50ddb6116d0f
-https://jiotvpllive.cdn.jio.com/bpk-tv/MTV_BTS/WDVLive/index.mpd?__hdnea__=st=1779259505~exp=1779281105~acl=/bpk-tv/MTV_BTS/WDVLive/*~hmac=ad4407fffdc4447be12190f36dc77efbd919f9af80252ced538d6afe113872a0
+https://jiotvpllive.cdn.jio.com/bpk-tv/MTV_BTS/WDVLive/index.mpd?__hdnea__=st=1779282005~exp=1779303605~acl=/bpk-tv/MTV_BTS/WDVLive/*~hmac=45328ee445a093725b057d0dcb707e16db486baed1af6a1734b1d45f2f5b42d1
 #EXTINF:-1 tvg-id="250" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Music_India.png" group-title="Music",Music India
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=48240328d04d5e2ea776dd51a8098f8e:2e30947d51d3f5164ba4bb20a8433c7d
@@ -2841,7 +2841,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_Select_1_BTS/WDVLive/index.mp
 #EXTINF:-1 tvg-id="461" tvg-logo="https://img.media.jio.com/tvpimages/98/79/302114_1749665414817_l_medium.jpg" group-title="Sports",Star Sports Select 2 HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=6017d0514d425fa38f6e80ba6dcc852f:0018944b00adf2078f62386f30c68b74
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_Select_HD_2_BTS/WDVLive/index.mpd?__hdnea__=st=1779259517~exp=1779281117~acl=/bpk-tv/Star_Sports_Select_HD_2_BTS/WDVLive/*~hmac=5278752ef9e14419763468c03814f24575d45c60b006acf7d0ba9a56dd1007a1
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_Select_HD_2_BTS/WDVLive/index.mpd?__hdnea__=st=1779282014~exp=1779303614~acl=/bpk-tv/Star_Sports_Select_HD_2_BTS/WDVLive/*~hmac=e93d8251e7dfc8374194e5c87bb4be9de8bef9b1dca5f377399bb4abd2bb7972
 #EXTINF:-1 tvg-id="1114" tvg-logo="https://img.media.jio.com/tvpimages/98/48/301989_1749664475828_l_medium.jpg" group-title="Sports",Star Sports Select 2
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=ec7d009d07aa5cbc81a441880530dfa5:8147983ad7402ebfc222d28b667a196f
