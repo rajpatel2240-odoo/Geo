@@ -11,7 +11,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/CNBCTV18Prime_MOB/WDVLive/index.mpd?__hdn
 #EXTINF:-1 tvg-id="144" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/ColorsHD.png" group-title="Entertainment",Colors HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=d9025bf5bbe6502cab58edaa0b50750b:91b5ca6ebefe3a977cb6fcae31868664
-https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsHD_BTS/WDVLive/index.mpd?__hdnea__=st=1779247883~exp=1779269483~acl=/bpk-tv/ColorsHD_BTS/WDVLive/*~hmac=c1f9541920df86ac39c9a61ecac9391b83c8c868b78352ad17edca3149de90d9
+https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsHD_BTS/WDVLive/index.mpd?__hdnea__=st=1779270304~exp=1779291904~acl=/bpk-tv/ColorsHD_BTS/WDVLive/*~hmac=755866f0ac3035e19736c1cda32d390452c94cb83f5123454083e291c0323b8b
 #EXTINF:-1 tvg-id="146" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/History_HD.png" group-title="English",History TV18 HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e5105a616fb95ce48dbde4fe9d7960ad:272d2bcff8430174fdd5aaf6f93abb6b
