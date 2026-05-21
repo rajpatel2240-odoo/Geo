@@ -79,7 +79,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/CNN_MOB/WDVLive/index.mpd?__hdnea__=st=17
 #EXTINF:-1 tvg-id="196" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/ColorsGujarati.png" group-title="Gujarati",Colors Gujarati
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=6e27c4a5f43e504fa5f9d39e880687d1:0baa1de589cf31b80cac8391466d7ad6
-https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsGujarati_BTS/WDVLive/index.mpd?__hdnea__=st=1779329704~exp=1779351304~acl=/bpk-tv/ColorsGujarati_BTS/WDVLive/*~hmac=40c2349539b45215f0ffa234f3e950c633c2eae1e100f1eb7981e637584d12c4
+https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsGujarati_BTS/WDVLive/index.mpd?__hdnea__=st=1779352205~exp=1779373805~acl=/bpk-tv/ColorsGujarati_BTS/WDVLive/*~hmac=5e91a3c7abb14a2d04a06b55bd1e2e8ce7245c50e052e86c49c557b543fad2aa
 #EXTINF:-1 tvg-id="202" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/DD_National.png" group-title="Entertainment",DD National
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=94de6872c91153af8ed28a60a9a68620:d02b1539ff994afc78f043bcd178ccc6
