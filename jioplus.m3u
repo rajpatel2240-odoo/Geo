@@ -1847,7 +1847,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Maa_HD_BTS/WDVLive/index.mpd?__hdnea__=st
 #EXTINF:-1 tvg-id="1113" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_Select_HD.png" group-title="Movies",Star Gold Select HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=2cb38dd5e6235bd9936ad7a29bc7ffd8:281d7b329be4e22d4e0e3e1d508ba2a4
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Select_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1779379383~exp=1779400983~acl=/bpk-tv/Star_Gold_Select_HD_BTS/WDVLive/*~hmac=56c8181dc56ba2f345dd6de532b42c7d43f5332d9e284eb5645c95094c51157c
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Select_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1779401710~exp=1779423310~acl=/bpk-tv/Star_Gold_Select_HD_BTS/WDVLive/*~hmac=4c24cc84e2c690068dd5f967ffbb8a084e7880151f1a30516cc773dbcbd0d1e5
 #EXTINF:-1 tvg-id="1115" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Movies.png" group-title="English",Star Movies
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e705c9330a935a119021d97c7677ce62:dd306a57de1715b0e1256d5c1737f485
@@ -2239,7 +2239,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/Goodness_TV_MOB/WDVLive/index.mpd?__hdnea
 #EXTINF:-1 tvg-id="1391" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Hungama.png" group-title="Kids",Hungama
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=454f8353caac500d95d641e0c7cfe048:0aaca46ea0f5096335598781fbe590e4
-https://jiotvpllive.cdn.jio.com/bpk-tv/Hungama_BTS/WDVLive/index.mpd?__hdnea__=st=1779379911~exp=1779401511~acl=/bpk-tv/Hungama_BTS/WDVLive/*~hmac=112887594fe0d28f57b576013cf82852f2d84afe52adcf13d76bfa65205c27b3
+https://jiotvpllive.cdn.jio.com/bpk-tv/Hungama_BTS/WDVLive/index.mpd?__hdnea__=st=1779401716~exp=1779423316~acl=/bpk-tv/Hungama_BTS/WDVLive/*~hmac=e77190a05a9b295ee91f269ba873d39932e1dae0f0bf3cd3aa8fd48c6d11179a
 #EXTINF:-1 tvg-id="1392" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Super_Hungama.png" group-title="Kids",Super Hungama
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=7a450f0820c4589690eb336c29f18da6:820e84119563b56d6e6f0bf514cbdc3c
@@ -3525,11 +3525,11 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/NDTV_Marathi_MOB/WDVLive/index.mpd?__hdne
 #EXTINF:-1 tvg-id="3096" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_2_HD.png" group-title="Movies",Star Gold 2 HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e6afa4754bc15dd28ab6806f417d319d:6a74ef2884813547109ee96098610387
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_2_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1779379491~exp=1779401091~acl=/bpk-tv/Star_Gold_2_HD_BTS/WDVLive/*~hmac=1fdd2966d2ff0c2d1729918553e21121e7b965f1288ef82e5859d090e2926417
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_2_HD_BTS/WDVLive/index.mpd?__hdnea__=st=1779401720~exp=1779423320~acl=/bpk-tv/Star_Gold_2_HD_BTS/WDVLive/*~hmac=c04e0b5fad9ad1c59b9a2e0a5950591e789b8eeb8ad46cd90a20a89530fbd768
 #EXTINF:-1 tvg-id="3097" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_Romance.png" group-title="Movies",Star Gold Romance
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=ee6e9f18a6c155e3855700b34fa8436f:b670c81b0e4f7f19f1fbeac0eaa7fba8
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Romance_BTS/WDVLive/index.mpd?__hdnea__=st=1779379484~exp=1779401084~acl=/bpk-tv/Star_Gold_Romance_BTS/WDVLive/*~hmac=be12ea120985ac7c738ac991fede26dd9d878a135776a090bb63aa89923b090e
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Romance_BTS/WDVLive/index.mpd?__hdnea__=st=1779401722~exp=1779423322~acl=/bpk-tv/Star_Gold_Romance_BTS/WDVLive/*~hmac=634763e1a710d3356e29e9c060be26b86a623e72fb5241b10e5453525d033fdb
 #EXTINF:-1 tvg-id="3098" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_Thrills.png" group-title="Movies",Star Gold Thrills
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=189ccd629ff25ec1adc2e34d49b186eb:fd102ddbd3844b55b70c6aa23dbd212b
