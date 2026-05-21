@@ -1859,7 +1859,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Suvarna_BTS/WDVLive/index.mpd?__hdnea__=s
 #EXTINF:-1 tvg-id="1119" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_Select.png" group-title="Movies",Star Gold Select
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=09706397be655eb6a26c6ba99b65e6d5:acb1ebe04e2a29fe098d532d7a506846
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Select_BTS/WDVLive/index.mpd?__hdnea__=st=1779360308~exp=1779381908~acl=/bpk-tv/Star_Gold_Select_BTS/WDVLive/*~hmac=4139ad8935e25c8742a4ffade0cb4b49f88e38700ea10c6f284f198f0db590d9
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Select_BTS/WDVLive/index.mpd?__hdnea__=st=1779381914~exp=1779403514~acl=/bpk-tv/Star_Gold_Select_BTS/WDVLive/*~hmac=499dd43c42d16b799c95eabdff1e5a6875ee41a93a4f8ed741b510e4f98d4173
 #EXTINF:-1 tvg-id="1120" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Jalsha_Movies.png" group-title="Bengali",Jalsha Movies
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e860f0d6577258b2b264d4bb2ecbfd4a:fd55bcc08db185b0a573a93e24fab8f6
@@ -2345,7 +2345,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/TEST12_HD_MOB/WDVLive/index.mpd?__hdnea__
 #EXTINF:-1 tvg-id="1477" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/ColorsCineplexHD.png" group-title="Movies",Colors Cineplex HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=bc74a4c7b66856f19ce77fffecd18590:5532bd5f660547d3b82992f1ef471d6a
-https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsCineplexHD_BTS/WDVLive/index.mpd?__hdnea__=st=1779360244~exp=1779381844~acl=/bpk-tv/ColorsCineplexHD_BTS/WDVLive/*~hmac=f1434430203ff6947a9cf8c4a2c08a9d2da4db93600b3db43f955542b1eeb3a0
+https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsCineplexHD_BTS/WDVLive/index.mpd?__hdnea__=st=1779381923~exp=1779403523~acl=/bpk-tv/ColorsCineplexHD_BTS/WDVLive/*~hmac=f27702f9d416b59497a2b660922063f398dfa2df22ad2371dfe91491804fb599
 #EXTINF:-1 tvg-id="1481" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Argus_TV.png" group-title="Odia",Argus News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=7c694c8e996d59aea878aff77e2082e7:840cf3aaa168b8d12016ee731e1db31e
