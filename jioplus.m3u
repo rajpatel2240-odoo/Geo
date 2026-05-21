@@ -135,7 +135,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/NDTV_Profit_MOB/WDVLive/index.mpd?__hdnea
 #EXTINF:-1 tvg-id="279" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/ColorsRishtey.png" group-title="Entertainment",Colors Rishtey
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=190829c4e2b05b8ca547d2cd30ab3bba:a28225e91492ce2d6601874c701bf9bd
-https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsRishtey_BTS/WDVLive/index.mpd?__hdnea__=st=1779348181~exp=1779369781~acl=/bpk-tv/ColorsRishtey_BTS/WDVLive/*~hmac=6b600cf8fce25e2ba1acf93e370e306cc559d19360e141a6ff7152ad12bbc791
+https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsRishtey_BTS/WDVLive/index.mpd?__hdnea__=st=1779370206~exp=1779391806~acl=/bpk-tv/ColorsRishtey_BTS/WDVLive/*~hmac=6fa12dfac8a3ba7d8d8ecd5a8d9d5db9ae60973f51e76171d932ac92e465a5bf
 #EXTINF:-1 tvg-id="286" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/AnimalPlanetHDEng.png" group-title="English",Animal Planet HD English
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=aafd067e9c3e50c4b25c239373b92103:4a3162f66c9bb5e24d05873bf7aa05f2
@@ -2119,7 +2119,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/AndFlixHD_MOB/WDVLive/index.mpd?__hdnea__
 #EXTINF:-1 tvg-id="1324" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Colors_Gujarati_Cinema.png" group-title="Gujarati",Colors Gujarati Cinema
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=cd976004d8345aa0be2034488fc8356f:55de685c871df127cfb17f25b1259421
-https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Gujarati_Cinema_BTS/WDVLive/index.mpd?__hdnea__=st=1779348024~exp=1779369624~acl=/bpk-tv/Colors_Gujarati_Cinema_BTS/WDVLive/*~hmac=abea77fd1a8a04e58bf924975cb5fe5d82b482d1bc05f850df59880404c004f8
+https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Gujarati_Cinema_BTS/WDVLive/index.mpd?__hdnea__=st=1779370220~exp=1779391820~acl=/bpk-tv/Colors_Gujarati_Cinema_BTS/WDVLive/*~hmac=ae4e1b9f594f574782a892675e8b5c1001cc440dee8af4d6b8b49969be7b5443
 #EXTINF:-1 tvg-id="1325" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Colors_Infinity_SD.png" group-title="English",Colors Infinity SD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=0182f1ff69df5a58b5073d1bbc24fa8f:1aaad81489784cef4402f4e1e6fea612
@@ -2533,7 +2533,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/Madha_TV_MOB/WDVLive/index.mpd?__hdnea__=
 #EXTINF:-1 tvg-id="1657" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Colors_Bangla_Cinema.png" group-title="Bengali",Colors Bangla Cinema
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=6f7b7241b2935a909d389fe318e5baaa:65783311644973348f359dc154bb41db
-https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Bangla_Cinema_BTS/WDVLive/index.mpd?__hdnea__=st=1779347873~exp=1779369473~acl=/bpk-tv/Colors_Bangla_Cinema_BTS/WDVLive/*~hmac=4bdd5f62b49dc0b792cedd68b4dd91c864ac2e3cb6c7bce4975446f027d8b1d9
+https://jiotvpllive.cdn.jio.com/bpk-tv/Colors_Bangla_Cinema_BTS/WDVLive/index.mpd?__hdnea__=st=1779370226~exp=1779391826~acl=/bpk-tv/Colors_Bangla_Cinema_BTS/WDVLive/*~hmac=c1dfa41ac7461539d4db81ce6ad082def40c9df87665f7c0fc373a116530b5ad
 #EXTINF:-1 tvg-id="1662" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Surya_Comedy.png" group-title="Malayalam",Sun Surya Comedy
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=6f89e312c5e051f4b0baada7c375662a:34ab95577a62df1b54ba527f0995281e
