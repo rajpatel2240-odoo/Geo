@@ -1,4 +1,7 @@
 #EXTM3U
 # Source: https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json
-# Last Updated: 05:57:02 AM 22-05-2026
+# Last Updated: 06:27:48 AM 22-05-2026
+
+#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/Skywarriors_web.png" group-title="Fancode",Cricket | Kowloon Lions vs Hong Kong Islanders (Skywarriors All Stars Plus Men’s T20 Series 2026)
+https://in-mc-fblive.fancode.com/mumbai/142764_english_hls_028922a59a23733_1ta-di_h264/index.m3u8
 
