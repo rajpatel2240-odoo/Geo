@@ -1859,7 +1859,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Suvarna_BTS/WDVLive/index.mpd?__hdnea__=s
 #EXTINF:-1 tvg-id="1119" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_Select.png" group-title="Movies",Star Gold Select
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=09706397be655eb6a26c6ba99b65e6d5:acb1ebe04e2a29fe098d532d7a506846
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Select_BTS/WDVLive/index.mpd?__hdnea__=st=1779404409~exp=1779426009~acl=/bpk-tv/Star_Gold_Select_BTS/WDVLive/*~hmac=75be3220cfa6cd30332f107a317fc6e154aa6e4d158cce93a090d54499542c20
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Select_BTS/WDVLive/index.mpd?__hdnea__=st=1779426019~exp=1779447619~acl=/bpk-tv/Star_Gold_Select_BTS/WDVLive/*~hmac=0b878cf7383acae17d598b3ac3d346e6dd17d4e9fd44a4f4bbafae91fb17455c
 #EXTINF:-1 tvg-id="1120" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Jalsha_Movies.png" group-title="Bengali",Jalsha Movies
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=e860f0d6577258b2b264d4bb2ecbfd4a:fd55bcc08db185b0a573a93e24fab8f6
@@ -2345,7 +2345,7 @@ https://jiotvmblive.cdn.jio.com/bpk-tv/TEST12_HD_MOB/WDVLive/index.mpd?__hdnea__
 #EXTINF:-1 tvg-id="1477" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/ColorsCineplexHD.png" group-title="Movies",Colors Cineplex HD
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=bc74a4c7b66856f19ce77fffecd18590:5532bd5f660547d3b82992f1ef471d6a
-https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsCineplexHD_BTS/WDVLive/index.mpd?__hdnea__=st=1779404416~exp=1779426016~acl=/bpk-tv/ColorsCineplexHD_BTS/WDVLive/*~hmac=dec2b5a8b5b8e8ef9c3f19f427f9ad9f8f1a6a4c805a6eea4370bd8d46204a89
+https://jiotvpllive.cdn.jio.com/bpk-tv/ColorsCineplexHD_BTS/WDVLive/index.mpd?__hdnea__=st=1779426027~exp=1779447627~acl=/bpk-tv/ColorsCineplexHD_BTS/WDVLive/*~hmac=c1c456b0f667e786b8a18f3ea5c602635be068ea990693778b218f1f6ff333c8
 #EXTINF:-1 tvg-id="1481" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Argus_TV.png" group-title="Odia",Argus News
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=7c694c8e996d59aea878aff77e2082e7:840cf3aaa168b8d12016ee731e1db31e
@@ -3533,7 +3533,7 @@ https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Romance_BTS/WDVLive/index.mpd?_
 #EXTINF:-1 tvg-id="3098" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Gold_Thrills.png" group-title="Movies",Star Gold Thrills
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=189ccd629ff25ec1adc2e34d49b186eb:fd102ddbd3844b55b70c6aa23dbd212b
-https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Thrills_BTS/WDVLive/index.mpd?__hdnea__=st=1779405319~exp=1779426919~acl=/bpk-tv/Star_Gold_Thrills_BTS/WDVLive/*~hmac=a01d916f2531036e4109ea6d3a0b410506807f5ba90846df3f04c5d7ff4b3c7a
+https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Gold_Thrills_BTS/WDVLive/index.mpd?__hdnea__=st=1779426922~exp=1779448522~acl=/bpk-tv/Star_Gold_Thrills_BTS/WDVLive/*~hmac=f3b22118fead138d74e3be15123a32058437cd72126afd1b521f23d3175ee06d
 #EXTINF:-1 tvg-id="3099" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Pravah_Picture.png" group-title="Marathi",Star Pravah Picture
 #KODIPROP:inputstream.adaptive.license_type=clearkey
 #KODIPROP:inputstream.adaptive.license_key=d1644aff68865ecdb884c36a634c008f:794529e9d938c592514a1eb9eb706da9
