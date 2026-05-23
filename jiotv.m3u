@@ -3,6 +3,8 @@
 #Telegram: https://t.me/cloudply
 
 #EXTINF:-1 tvg-id="100" tvg-name="Polimer News" tvg-logo="https://img.media.jio.com/imagespublic/56/95/PolimerNews_1574670851302_tv.jpg" group-title="General",Polimer News
+#KODIPROP:inputstream.adaptive.license_type=clearkey
+#KODIPROP:inputstream.adaptive.license_key={"keys":[{"kty":"oct","kid":"ugp5Die5XY6bjvvtkjFn9g","k":"FjE9hxqCprixW14ypMdk2g"}],"type":"temporary"}
 https://jiotvmblive.cdn.jio.com/bpk-tv/Polimer_News_MOB/WDVLive/index.mpd?__hdnea__=st=1779510612~exp=1779532212~acl=/*~hmac=69ac7e0603dc87a534433e2010dd9acd4c2e67e4f97b2909ce840d77bbff006f
 
 #EXTINF:-1 tvg-id="1132" tvg-name="Star Plus HD" tvg-logo="https://jiotv.catchup.cdn.jio.com/dare_images/images/Star_Plus_HD.png" group-title="Entertainment",Star Plus HD
