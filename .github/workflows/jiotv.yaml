@@ -19,7 +19,7 @@ jobs:
 
       - name: Run Conversion Script
         run: |
-          pip install requests brotli zstandard
+          pip install aiohttp
           python jiotv.py
 
       - name: Commit and push changes
