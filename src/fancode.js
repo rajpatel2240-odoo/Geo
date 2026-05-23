@@ -1,44 +1,113 @@
-const FANCODE_URL = "https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json";
+const JSON_URL =
+  "https://raw.githubusercontent.com/drmlive/fancode-live-events/refs/heads/main/fancode.json";
 
-const HEADERS = {
-  "User-Agent": "Cloudflare-Worker",
-};
+// ---------------- BASE64 SAFE ----------------
+function toBase64(str) {
+  const bytes = new TextEncoder().encode(str);
 
-export async function generateFancodeM3U() {
-  const res = await fetch(FANCODE_URL, {
-    headers: HEADERS,
-  });
+  let binary = "";
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch Fancode JSON");
+  for (let i = 0; i < bytes.length; i++) {
+    binary += String.fromCharCode(bytes[i]);
   }
 
-  const data = await res.json();
+  return btoa(binary);
+}
 
-  let m3u = "#EXTM3U\n";
-  m3u += "# Fancode Playlist\n\n";
+// ---------------- GENERATE FANCODE M3U ----------------
+async function generateFancodeM3U() {
+  const response = await fetch(JSON_URL);
+
+  const data = await response.json();
+
+  let output = [
+    "#EXTM3U",
+    `# Last Updated: ${data["last update time"] || "N/A"}`,
+    "",
+  ];
 
   for (const match of data.matches || []) {
-    if ((match.status || "").toUpperCase() !== "LIVE") {
-      continue;
-    }
+    try {
+      if ((match.status || "").toUpperCase() !== "LIVE") {
+        continue;
+      }
 
-    const stream = match.adfree_url || match.dai_url;
+      const stream =
+        match.adfree_url || match.dai_url;
 
-    if (!stream) continue;
+      if (!stream) continue;
 
-    const title =
-      (match.event_category || "Unknown") +
-      " | " +
-      (match.title ||
+      const title =
+        match.title ||
         match.match_name ||
-        "Match");
+        "Unknown";
 
-    const logo = match.src || "";
+      const category =
+        match.event_category || "Sports";
 
-    m3u += `#EXTINF:-1 tvg-logo="${logo}" group-title="Fancode",${title}\n`;
-    m3u += `${stream}\n\n`;
+      const logo = match.src || "";
+
+      output.push(
+        `#EXTINF:-1 tvg-logo="${logo}" group-title="Fancode",${category} | ${title}`
+      );
+
+      output.push(stream);
+      output.push("");
+    } catch (e) {
+      console.log("Fancode error:", e.toString());
+    }
   }
 
-  return m3u;
+  return output.join("\n");
+}
+
+// ---------------- GITHUB UPLOAD ----------------
+async function uploadToGitHub(content, env) {
+  const path = "fancode_1080p.m3u";
+
+  const api =
+    `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${path}`;
+
+  let sha;
+
+  // GET OLD FILE
+  const oldFile = await fetch(api, {
+    headers: {
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      "User-Agent": "Cloudflare-Worker",
+    },
+  });
+
+  const oldText = await oldFile.text();
+
+  try {
+    const json = JSON.parse(oldText);
+    sha = json.sha;
+  } catch {}
+
+  // UPLOAD NEW FILE
+  const upload = await fetch(api, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      "Content-Type": "application/json",
+      "User-Agent": "Cloudflare-Worker",
+    },
+    body: JSON.stringify({
+      message: "Auto update Fancode playlist",
+      content: toBase64(content),
+      sha,
+    }),
+  });
+
+  const result = await upload.text();
+
+  console.log("Fancode Upload:", upload.status);
+  console.log(result);
+}
+
+// ---------------- EXPORTED FUNCTION ----------------
+export async function runFancode(env) {
+  const m3u = await generateFancodeM3U();
+  await uploadToGitHub(m3u, env);
 }
