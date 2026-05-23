@@ -1,5 +1,4 @@
-const JSON_URL =
-  "https://noisy-truth-6766.streamstar18.workers.dev/";
+const JSON_URL = "https://noisy-truth-6766.streamstar18.workers.dev/";
 
 const HEADERS = {
   "User-Agent":
@@ -8,18 +7,25 @@ const HEADERS = {
 
 const CONCURRENT_REQUESTS = 20;
 
-// ---------------- BASE64 ---------------- //
-
+//
+// ---------------- BASE64 (FIXED - NO STACK OVERFLOW) ----------------
+//
 function toBase64(str) {
-  return btoa(
-    String.fromCharCode(
-      ...new TextEncoder().encode(str)
-    )
-  );
+  const bytes = new TextEncoder().encode(str);
+
+  let binary = "";
+  const len = bytes.length;
+
+  for (let i = 0; i < len; i++) {
+    binary += String.fromCharCode(bytes[i]);
+  }
+
+  return btoa(binary);
 }
 
-// ---------------- FETCH KEY ---------------- //
-
+//
+// ---------------- FETCH KEY ----------------
+//
 async function fetchKey(url) {
   try {
     const res = await fetch(url, {
@@ -30,52 +36,35 @@ async function fetchKey(url) {
       return (await res.text()).trim();
     }
   } catch (e) {
-    console.log(
-      "Key fetch failed:",
-      e.toString()
-    );
+    console.log("Key fetch failed:", e.toString());
   }
 
   return "";
 }
 
-// ---------------- PROCESS CHANNEL ---------------- //
-
+//
+// ---------------- PROCESS CHANNEL ----------------
+//
 async function processChannel(channel) {
   const name = channel.name || "Unknown";
-
   const chanId = channel.id || "";
-
   const logo = channel.logo || "";
-
   const group = channel.group || "Other";
 
-  const mpd = (
-    channel.mpd_url || ""
-  ).replace(
+  const mpd = (channel.mpd_url || "").replace(
     "|drmScheme=clearkey",
     ""
   );
 
-  const licenseUrl =
-    channel.license_url || "";
+  const licenseUrl = channel.license_url || "";
+  const cookie = channel.headers?.cookie || "";
 
-  const cookie =
-    channel.headers?.cookie || "";
-
-  const finalUrl = cookie
-    ? `${mpd}?${cookie}`
-    : mpd;
+  const finalUrl = cookie ? `${mpd}?${cookie}` : mpd;
 
   let key = "";
 
-  if (
-    licenseUrl &&
-    licenseUrl !== "null"
-  ) {
-    key = await fetchKey(
-      licenseUrl
-    );
+  if (licenseUrl && licenseUrl !== "null") {
+    key = await fetchKey(licenseUrl);
   }
 
   const out = [
@@ -83,13 +72,8 @@ async function processChannel(channel) {
   ];
 
   if (key) {
-    out.push(
-      "#KODIPROP:inputstream.adaptive.license_type=clearkey"
-    );
-
-    out.push(
-      `#KODIPROP:inputstream.adaptive.license_key=${key}`
-    );
+    out.push("#KODIPROP:inputstream.adaptive.license_type=clearkey");
+    out.push(`#KODIPROP:inputstream.adaptive.license_key=${key}`);
   }
 
   out.push(finalUrl);
@@ -97,79 +81,51 @@ async function processChannel(channel) {
   return out.join("\n");
 }
 
-// ---------------- CONCURRENT RUNNER ---------------- //
-
-async function runConcurrent(
-  tasks,
-  limit
-) {
-  const results = new Array(
-    tasks.length
-  );
-
+//
+// ---------------- CONCURRENT RUNNER ----------------
+//
+async function runConcurrent(tasks, limit) {
+  const results = new Array(tasks.length);
   let index = 0;
 
   async function worker() {
-    while (
-      index < tasks.length
-    ) {
+    while (index < tasks.length) {
       const current = index++;
 
       try {
-        results[current] =
-          await tasks[current]();
+        results[current] = await tasks[current]();
       } catch (e) {
-        console.log(
-          "Worker error:",
-          e.toString()
-        );
-
+        console.log("Worker error:", e.toString());
         results[current] = "";
       }
     }
   }
 
   await Promise.all(
-    Array.from(
-      { length: limit },
-      () => worker()
-    )
+    Array.from({ length: limit }, () => worker())
   );
 
   return results;
 }
 
-// ---------------- GENERATE M3U ---------------- //
-
+//
+// ---------------- GENERATE M3U ----------------
+//
 async function generateM3U() {
-  console.log(
-    "Fetching channels..."
-  );
+  const response = await fetch(JSON_URL, {
+    headers: HEADERS,
+  });
 
-  const response = await fetch(
-    JSON_URL,
-    {
-      headers: HEADERS,
-    }
-  );
-
-  const channels =
-    await response.json();
-
-  console.log(
-    `Channels: ${channels.length}`
-  );
+  const channels = await response.json();
 
   const tasks = channels.map(
-    (channel) => () =>
-      processChannel(channel)
+    (channel) => () => processChannel(channel)
   );
 
-  const results =
-    await runConcurrent(
-      tasks,
-      CONCURRENT_REQUESTS
-    );
+  const results = await runConcurrent(
+    tasks,
+    CONCURRENT_REQUESTS
+  );
 
   return [
     "#EXTM3U",
@@ -180,155 +136,84 @@ async function generateM3U() {
   ].join("\n\n");
 }
 
-// ---------------- GITHUB UPLOAD ---------------- //
-
-async function uploadToGitHub(
-  content,
-  env
-) {
+//
+// ---------------- GITHUB UPLOAD ----------------
+//
+async function uploadToGitHub(content, env) {
   const path = "jiotv.m3u";
 
-  const api =
-    `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${path}`;
+  const api = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${path}`;
 
-  console.log(
-    "Uploading to GitHub..."
-  );
+  console.log("Uploading to GitHub...");
 
   let sha = undefined;
 
-  // GET OLD FILE SHA
+  // GET EXISTING FILE
   try {
-    const oldFile =
-      await fetch(api, {
-        headers: {
-          Authorization:
-            `Bearer ${env.GITHUB_TOKEN}`,
-          "User-Agent":
-            "Cloudflare Worker",
-        },
-      });
-
-    console.log(
-      "GET status:",
-      oldFile.status
-    );
+    const oldFile = await fetch(api, {
+      headers: {
+        Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+        "User-Agent": "Cloudflare Worker",
+      },
+    });
 
     if (oldFile.ok) {
-      const data =
-        await oldFile.json();
-
+      const data = await oldFile.json();
       sha = data.sha;
-
-      console.log(
-        "Existing SHA found"
-      );
     }
   } catch (e) {
-    console.log(
-      "SHA fetch error:",
-      e.toString()
-    );
+    console.log("SHA fetch error:", e.toString());
   }
 
-  // UPLOAD FILE
-  const upload = await fetch(
-    api,
-    {
-      method: "PUT",
+  // UPLOAD
+  const upload = await fetch(api, {
+    method: "PUT",
+    headers: {
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      "Content-Type": "application/json",
+      "User-Agent": "Cloudflare Worker",
+    },
+    body: JSON.stringify({
+      message: "Auto update playlist",
+      content: toBase64(content),
+      sha,
+    }),
+  });
 
-      headers: {
-        Authorization:
-          `Bearer ${env.GITHUB_TOKEN}`,
-        "Content-Type":
-          "application/json",
-        "User-Agent":
-          "Cloudflare Worker",
-      },
+  const text = await upload.text();
 
-      body: JSON.stringify({
-        message:
-          "Auto update playlist",
-
-        content:
-          toBase64(content),
-
-        sha,
-      }),
-    }
-  );
-
-  console.log(
-    "UPLOAD STATUS:",
-    upload.status
-  );
-
-  const responseText =
-    await upload.text();
-
-  console.log(
-    "UPLOAD RESPONSE:",
-    responseText
-  );
+  console.log("UPLOAD STATUS:", upload.status);
+  console.log("UPLOAD RESPONSE:", text);
 }
 
-// ---------------- MAIN ---------------- //
-
+//
+// ---------------- WORKER ENTRY ----------------
+//
 export default {
-  // CRON JOB
-  async scheduled(
-    event,
-    env,
-    ctx
-  ) {
-    console.log(
-      "Cron started"
-    );
-
+  // CRON
+  async scheduled(event, env, ctx) {
     try {
-      const m3u =
-        await generateM3U();
-
-      await uploadToGitHub(
-        m3u,
-        env
-      );
-
-      console.log(
-        "GitHub updated successfully"
-      );
+      const m3u = await generateM3U();
+      await uploadToGitHub(m3u, env);
+      console.log("Cron completed");
     } catch (e) {
-      console.log(
-        "Scheduled error:",
-        e.toString()
-      );
+      console.log("Cron error:", e.toString());
     }
   },
 
-  // MANUAL TEST
+  // MANUAL TEST URL
   async fetch(request, env) {
     try {
-      const m3u =
-        await generateM3U();
+      const m3u = await generateM3U();
+      await uploadToGitHub(m3u, env);
 
-      await uploadToGitHub(
-        m3u,
-        env
-      );
-
-      return new Response(
-        "GitHub Updated Successfully",
-        {
-          status: 200,
-        }
-      );
+      return new Response("GitHub Updated Successfully", {
+        status: 200,
+      });
     } catch (e) {
-      return new Response(
-        `Error: ${e.toString()}`,
-        {
-          status: 500,
-        }
-      );
+      return new Response(`Error: ${e.toString()}`, {
+        status: 500,
+      });
     }
   },
 };
