@@ -1,115 +1,172 @@
-# Credits 🙏: cloudplay
-# Telegram: https://t.me/cloudply
-
 import asyncio
-import aiohttp
-import json
+import httpx
+import orjson
+import uvloop
+from pathlib import Path
+
+asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 JSON_URL = "https://noisy-truth-6766.streamstar18.workers.dev/"
+CACHE_FILE = "key_cache.json"
+
 LICENSE_USER_AGENT = "OTT Navigator/1.7.4.1 (Linux;Android 11; en; 1tas50z)"
 
 HEADERS = {
     "User-Agent": LICENSE_USER_AGENT
 }
 
-# Increase if server can handle it
-MAX_CONCURRENT_REQUESTS = 100
+CONCURRENT_REQUESTS = 300
+TIMEOUT = 2.5
+
+sem = asyncio.Semaphore(CONCURRENT_REQUESTS)
 
 
-async def fetch_key(session, license_url):
+# ---------------- CACHE ---------------- #
+
+def load_cache():
+    path = Path(CACHE_FILE)
+
+    if not path.exists():
+        return {}
+
     try:
-        async with session.get(
-            license_url,
-            timeout=aiohttp.ClientTimeout(total=5)
-        ) as response:
-
-            if response.status == 200:
-                return (await response.text()).strip()
-
+        return orjson.loads(path.read_bytes())
     except:
-        pass
+        return {}
+
+
+def save_cache(cache):
+    Path(CACHE_FILE).write_bytes(
+        orjson.dumps(cache)
+    )
+
+
+# ---------------- NETWORK ---------------- #
+
+async def fetch_key(client, url):
+
+    async with sem:
+
+        try:
+            r = await client.get(url)
+
+            if r.status_code == 200:
+
+                text = r.text.strip()
+
+                if text:
+                    return text
+
+        except:
+            pass
 
     return ""
 
 
-async def process_channel(session, channel):
-    name = channel.get("name", "Unknown Channel")
+# ---------------- CHANNEL ---------------- #
+
+async def process_channel(client, channel, cache):
+
+    name = channel.get("name", "Unknown")
     chan_id = channel.get("id", "")
     logo = channel.get("logo", "")
-    group = channel.get("group", "Uncategorized")
+    group = channel.get("group", "Other")
 
-    raw_mpd = channel.get("mpd_url", "")
+    mpd = channel.get("mpd_url", "").replace(
+        "|drmScheme=clearkey",
+        ""
+    )
+
     license_url = channel.get("license_url", "")
 
     cookie = channel.get("headers", {}).get("cookie", "")
 
-    clean_mpd = raw_mpd.replace("|drmScheme=clearkey", "")
-    final_url = f"{clean_mpd}?{cookie}" if cookie else clean_mpd
+    final_url = f"{mpd}?{cookie}" if cookie else mpd
 
     key = ""
 
-    if license_url and license_url != "null":
-        key = await fetch_key(session, license_url)
+    # ---------- CACHE HIT ----------
+    if license_url in cache:
+        key = cache[license_url]
 
-    lines = []
+    # ---------- FETCH ----------
+    elif license_url and license_url != "null":
 
-    lines.append(
+        key = await fetch_key(client, license_url)
+
+        if key:
+            cache[license_url] = key
+
+    out = [
         f'#EXTINF:-1 tvg-id="{chan_id}" '
         f'tvg-name="{name}" '
         f'tvg-logo="{logo}" '
         f'group-title="{group}",{name}'
-    )
+    ]
 
     if key:
-        lines.append(
+        out.append(
             '#KODIPROP:inputstream.adaptive.license_type=clearkey'
         )
-        lines.append(
+
+        out.append(
             f'#KODIPROP:inputstream.adaptive.license_key={key}'
         )
 
-    lines.append(final_url)
+    out.append(final_url)
 
-    return "\n".join(lines)
+    return "\n".join(out)
 
 
-async def generate_m3u(output_m3u_path):
-    print(f"Fetching JSON data from: {JSON_URL}")
+# ---------------- MAIN ---------------- #
 
-    connector = aiohttp.TCPConnector(
-        limit=MAX_CONCURRENT_REQUESTS,
-        ttl_dns_cache=300
+async def main():
+
+    cache = load_cache()
+
+    print(f"Loaded {len(cache)} cached keys")
+
+    limits = httpx.Limits(
+        max_connections=500,
+        max_keepalive_connections=200
     )
 
-    timeout = aiohttp.ClientTimeout(total=10)
+    timeout = httpx.Timeout(TIMEOUT)
 
-    async with aiohttp.ClientSession(
+    async with httpx.AsyncClient(
         headers=HEADERS,
-        connector=connector,
-        timeout=timeout
-    ) as session:
+        timeout=timeout,
+        limits=limits,
+        http2=True,
+        follow_redirects=True
+    ) as client:
 
-        async with session.get(JSON_URL) as response:
-            channels = await response.json()
+        r = await client.get(JSON_URL)
 
-        print(f"Loaded {len(channels)} channels")
+        channels = orjson.loads(r.content)
 
         tasks = [
-            process_channel(session, channel)
-            for channel in channels
+            process_channel(client, ch, cache)
+            for ch in channels
         ]
 
         results = await asyncio.gather(*tasks)
 
-    with open(output_m3u_path, "w", encoding="utf-8") as f:
+    # Save updated cache
+    save_cache(cache)
+
+    with open("jiotv.m3u", "w", encoding="utf-8") as f:
+
         f.write("#EXTM3U\n")
         f.write("#Credits 🙏: cloudplay\n")
         f.write("#Telegram: https://t.me/cloudply\n\n")
 
         f.write("\n\n".join(results))
 
-    print(f"Saved to {output_m3u_path}")
+    print(f"Channels: {len(channels)}")
+    print(f"Cached keys: {len(cache)}")
+    print("Done")
 
 
 if __name__ == "__main__":
-    asyncio.run(generate_m3u("jiotv.m3u"))
+    asyncio.run(main())
