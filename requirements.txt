@@ -1,3 +1,4 @@
 flask
 cloudscraper
 requests
+gunicorn
