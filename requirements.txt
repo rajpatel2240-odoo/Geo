@@ -1,4 +1,0 @@
-flask
-cloudscraper
-requests
-gunicorn
