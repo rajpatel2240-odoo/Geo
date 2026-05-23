@@ -5,7 +5,7 @@ const HEADERS = {
     "OTT Navigator/1.7.4.1 (Linux;Android 11)",
 };
 
-const CONCURRENT_REQUESTS = 20;
+const CONCURRENT_REQUESTS = 10;
 
 //
 // ---------------- BASE64 (FIXED - NO STACK OVERFLOW) ----------------
