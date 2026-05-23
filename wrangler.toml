@@ -1,4 +1,4 @@
-name = "jiotv-worker"
+name = "jiotv"
 
 main = "src/jiotv.js"
 
