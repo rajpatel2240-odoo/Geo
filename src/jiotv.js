@@ -18,7 +18,7 @@ function toBase64(str) {
   return btoa(binary);
 }
 
-// ---------------- PROCESS CHANNEL (NO FETCH INSIDE) ----------------
+// ---------------- PROCESS CHANNEL ----------------
 async function processChannel(channel) {
   const name = channel.name || "Unknown";
   const chanId = channel.id || "";
@@ -30,7 +30,7 @@ async function processChannel(channel) {
     ""
   );
 
-  const licenseUrl = channel.license_url || ""; // 👈 DIRECT USE
+  const licenseUrl = channel.license_url || "";
   const cookie = channel.headers?.cookie || "";
 
   const finalUrl = cookie ? `${mpd}?${cookie}` : mpd;
@@ -39,7 +39,7 @@ async function processChannel(channel) {
     `#EXTINF:-1 tvg-id="${chanId}" tvg-name="${name}" tvg-logo="${logo}" group-title="${group}",${name}`,
   ];
 
-  // ---------------- CLEARKEY NOW DIRECT FROM JSON ----------------
+  // ---------------- CLEARKEY ----------------
   if (licenseUrl && licenseUrl !== "null") {
     out.push("#KODIPROP:inputstream.adaptive.license_type=clearkey");
     out.push(`#KODIPROP:inputstream.adaptive.license_key=${licenseUrl}`);
@@ -50,7 +50,7 @@ async function processChannel(channel) {
   return out.join("\n");
 }
 
-// ---------------- SEQUENTIAL GENERATION (SAFE) ----------------
+// ---------------- GENERATE M3U ----------------
 async function generateM3U() {
   const response = await fetch(JSON_URL, {
     headers: HEADERS,
@@ -87,11 +87,11 @@ async function uploadToGitHub(content, env) {
 
   let sha;
 
-  // GET existing file
+  // ---------------- GET OLD FILE ----------------
   const oldFile = await fetch(api, {
     headers: {
       Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-      "User-Agent": "Cloudflare-Worker", // ✅ FIX 1
+      "User-Agent": "Cloudflare-Worker",
     },
   });
 
@@ -102,16 +102,16 @@ async function uploadToGitHub(content, env) {
     sha = json.sha;
   } catch {}
 
-  // PUT file
+  // ---------------- UPLOAD NEW FILE ----------------
   const upload = await fetch(api, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${env.GITHUB_TOKEN}`,
       "Content-Type": "application/json",
-      "User-Agent": "Cloudflare-Worker", // ✅ FIX 2 (IMPORTANT)
+      "User-Agent": "Cloudflare-Worker",
     },
     body: JSON.stringify({
-      message: "Auto update playlist",
+      message: "Auto update JioTV playlist",
       content: toBase64(content),
       sha,
     }),
@@ -122,28 +122,8 @@ async function uploadToGitHub(content, env) {
   console.log("UPLOAD STATUS:", upload.status);
   console.log("UPLOAD RESPONSE:", result);
 }
-// ---------------- WORKER ENTRY ----------------
-export default {
-  async scheduled(event, env, ctx) {
-    try {
-      const m3u = await generateM3U();
-      await uploadToGitHub(m3u, env);
-      console.log("Cron success");
-    } catch (e) {
-      console.log("Cron error:", e.toString());
-    }
-  },
 
-  async fetch(request, env) {
-    try {
-      const m3u = await generateM3U();
-      await uploadToGitHub(m3u, env);
-
-      return new Response("GitHub Updated Successfully");
-    } catch (e) {
-      return new Response("Error: " + e.toString(), {
-        status: 500,
-      });
-    }
-  },
-};
+export async function runJioTV(env) {
+  const m3u = await generateM3U();
+  await uploadToGitHub(m3u, env);
+}
