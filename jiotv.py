@@ -1,84 +1,115 @@
-#Credits 🙏: cloudplay
-#Telegram: https://t.me/cloudply
+# Credits 🙏: cloudplay
+# Telegram: https://t.me/cloudply
 
+import asyncio
+import aiohttp
 import json
-import requests
-from concurrent.futures import ThreadPoolExecutor
 
 JSON_URL = "https://noisy-truth-6766.streamstar18.workers.dev/"
-
 LICENSE_USER_AGENT = "OTT Navigator/1.7.4.1 (Linux;Android 11; en; 1tas50z)"
 
-def process_channel(channel):
+HEADERS = {
+    "User-Agent": LICENSE_USER_AGENT
+}
+
+# Increase if server can handle it
+MAX_CONCURRENT_REQUESTS = 100
+
+
+async def fetch_key(session, license_url):
+    try:
+        async with session.get(
+            license_url,
+            timeout=aiohttp.ClientTimeout(total=5)
+        ) as response:
+
+            if response.status == 200:
+                return (await response.text()).strip()
+
+    except:
+        pass
+
+    return ""
+
+
+async def process_channel(session, channel):
     name = channel.get("name", "Unknown Channel")
     chan_id = channel.get("id", "")
     logo = channel.get("logo", "")
     group = channel.get("group", "Uncategorized")
+
     raw_mpd = channel.get("mpd_url", "")
     license_url = channel.get("license_url", "")
+
     cookie = channel.get("headers", {}).get("cookie", "")
-    user_agent = channel.get("user_agent", "")
 
     clean_mpd = raw_mpd.replace("|drmScheme=clearkey", "")
-
     final_url = f"{clean_mpd}?{cookie}" if cookie else clean_mpd
 
     key = ""
+
     if license_url and license_url != "null":
-        try:
-            headers = {"User-Agent": LICENSE_USER_AGENT}
-            response = requests.get(license_url, headers=headers, timeout=10)
-            if response.status_code == 200:
-                key = response.text.strip()
-        except requests.RequestException as e:
-            print(f"Failed to fetch key for {name}: {e}")
+        key = await fetch_key(session, license_url)
 
-    m3u_lines = []
-    
-    m3u_lines.append(f'#EXTINF:-1 tvg-id="{chan_id}" tvg-name="{name}" tvg-logo="{logo}" group-title="{group}",{name}')
-    
+    lines = []
+
+    lines.append(
+        f'#EXTINF:-1 tvg-id="{chan_id}" '
+        f'tvg-name="{name}" '
+        f'tvg-logo="{logo}" '
+        f'group-title="{group}",{name}'
+    )
+
     if key:
-        m3u_lines.append('#KODIPROP:inputstream.adaptive.license_type=clearkey')
-        m3u_lines.append(f'#KODIPROP:inputstream.adaptive.license_key={key}')
-        
-    m3u_lines.append(final_url)
-    
-    return "\n".join(m3u_lines)
+        lines.append(
+            '#KODIPROP:inputstream.adaptive.license_type=clearkey'
+        )
+        lines.append(
+            f'#KODIPROP:inputstream.adaptive.license_key={key}'
+        )
 
-def generate_m3u(output_m3u_path, max_workers=15):
+    lines.append(final_url)
+
+    return "\n".join(lines)
+
+
+async def generate_m3u(output_m3u_path):
     print(f"Fetching JSON data from: {JSON_URL}")
-    
-    try:
-        response = requests.get(JSON_URL, timeout=15)
-        response.raise_for_status()
-        channels = response.json()
-    except requests.RequestException as e:
-        print(f"Error fetching JSON from URL: {e}")
-        return
-    except json.JSONDecodeError:
-        print("Error: The URL did not return valid JSON.")
-        return
 
-    if not isinstance(channels, list):
-        print("Error: Expected a JSON array of channels.")
-        return
+    connector = aiohttp.TCPConnector(
+        limit=MAX_CONCURRENT_REQUESTS,
+        ttl_dns_cache=300
+    )
 
-    print(f"Successfully loaded {len(channels)} channels.")
-    print(f"Fetching DRM keys using {max_workers} concurrent workers. This may take a moment...")
+    timeout = aiohttp.ClientTimeout(total=10)
 
-    with ThreadPoolExecutor(max_workers=max_workers) as executor:
-        results = list(executor.map(process_channel, channels))
+    async with aiohttp.ClientSession(
+        headers=HEADERS,
+        connector=connector,
+        timeout=timeout
+    ) as session:
 
-    with open(output_m3u_path, 'w', encoding='utf-8') as f:
+        async with session.get(JSON_URL) as response:
+            channels = await response.json()
+
+        print(f"Loaded {len(channels)} channels")
+
+        tasks = [
+            process_channel(session, channel)
+            for channel in channels
+        ]
+
+        results = await asyncio.gather(*tasks)
+
+    with open(output_m3u_path, "w", encoding="utf-8") as f:
         f.write("#EXTM3U\n")
         f.write("#Credits 🙏: cloudplay\n")
-        f.write("#Telegram: https://t.me/cloudply")
-        for result in results:
-            f.write(result + "\n\n")
-            
-    print(f"\nSuccess! M3U playlist saved to '{output_m3u_path}'.")
+        f.write("#Telegram: https://t.me/cloudply\n\n")
+
+        f.write("\n\n".join(results))
+
+    print(f"Saved to {output_m3u_path}")
+
 
 if __name__ == "__main__":
-    output_file = "jiotv.m3u"
-    
-    generate_m3u(output_file, max_workers=15)
+    asyncio.run(generate_m3u("jiotv.m3u"))
