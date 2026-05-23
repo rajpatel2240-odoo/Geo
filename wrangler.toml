@@ -1,6 +1,6 @@
 name = "jiotv"
 
-main = "src/jiotv.js"
+main = "src/index.js"
 
 compatibility_date = "2026-05-23"
 
