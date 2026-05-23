@@ -1,0 +1,7 @@
+name = "jiotv-worker"
+
+main = "src/jiotv.js"
+
+compatibility_date = "2026-05-23"
+
+workers_dev = true
