@@ -1,11 +1,8 @@
 #EXTM3U
-# Last Updated: 03:39:08 AM 24-05-2026
+# Last Updated: 03:49:15 AM 24-05-2026
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/F2_Canada_web_1779115174828.jpg" group-title="Fancode",Motorsports | Reverse Grid Race vs Montreal (F1 ACADEMY CANADA 2026)
 https://in-mc-fblive.fancode.com/mumbai/139687_english_hls_795a85a29c90917_1ta-di_h264/index.m3u8
 
 #EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131204_5427_GEF_OSN_FC-Web.png" group-title="Fancode",Football | Getafe CF vs CA Osasuna (LALIGA 2025-26)
 https://in-mc-fblive.fancode.com/mumbai/131204_english_hls_c99f54029f10838_1ta-di_h264/index.m3u8
-
-#EXTINF:-1 tvg-logo="https://www.fancode.com/skillup-uploads/cms-media/131202_5427_CEV_SEV_FC-Web.png" group-title="Fancode",Football | RC Celta vs Sevilla FC (LALIGA 2025-26)
-https://in-mc-fblive.fancode.com/mumbai/131202_english_hls_64268336ae74684_1ta-di_h264/index.m3u8
