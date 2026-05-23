@@ -5,3 +5,10 @@ main = "src/jiotv.js"
 compatibility_date = "2026-05-23"
 
 workers_dev = true
+
+[observability.logs]
+enabled = true
+invocation_logs = true
+
+[observability.traces]
+enabled = false
