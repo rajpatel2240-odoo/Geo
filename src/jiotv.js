@@ -80,33 +80,35 @@ async function generateM3U() {
 
 // ---------------- GITHUB UPLOAD ----------------
 async function uploadToGitHub(content, env) {
-  const path = "jiotv.m3u";
+  const path = "jiotv_cf.m3u";
 
-  const api = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${path}`;
+  const api =
+    `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${path}`;
 
-  let sha = undefined;
+  let sha;
+
+  // GET existing file
+  const oldFile = await fetch(api, {
+    headers: {
+      Authorization: `Bearer ${env.GITHUB_TOKEN}`,
+      "User-Agent": "Cloudflare-Worker", // ✅ FIX 1
+    },
+  });
+
+  const oldText = await oldFile.text();
 
   try {
-    const oldFile = await fetch(api, {
-      headers: {
-        Authorization: `Bearer ${env.GITHUB_TOKEN}`,
-        "User-Agent": "Cloudflare Worker",
-      },
-    });
+    const json = JSON.parse(oldText);
+    sha = json.sha;
+  } catch {}
 
-    if (oldFile.ok) {
-      const data = await oldFile.json();
-      sha = data.sha;
-    }
-  } catch (e) {
-    console.log("SHA error:", e.toString());
-  }
-
+  // PUT file
   const upload = await fetch(api, {
     method: "PUT",
     headers: {
       Authorization: `Bearer ${env.GITHUB_TOKEN}`,
       "Content-Type": "application/json",
+      "User-Agent": "Cloudflare-Worker", // ✅ FIX 2 (IMPORTANT)
     },
     body: JSON.stringify({
       message: "Auto update playlist",
@@ -115,10 +117,11 @@ async function uploadToGitHub(content, env) {
     }),
   });
 
-  console.log("UPLOAD STATUS:", upload.status);
-  console.log("UPLOAD RESPONSE:", await upload.text());
-}
+  const result = await upload.text();
 
+  console.log("UPLOAD STATUS:", upload.status);
+  console.log("UPLOAD RESPONSE:", result);
+}
 // ---------------- WORKER ENTRY ----------------
 export default {
   async scheduled(event, env, ctx) {
